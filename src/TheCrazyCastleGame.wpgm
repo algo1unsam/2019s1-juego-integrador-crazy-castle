@@ -1,0 +1,9 @@
+import wollok.game.*
+program bugsBunny {
+ game.title("Bugs Bunny")
+	game.height(50)
+	game.width(50)
+	game.ground("fondo.png")
+  game.start()
+
+} 
