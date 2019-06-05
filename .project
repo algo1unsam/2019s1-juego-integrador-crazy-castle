@@ -34,9 +34,24 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>assets/caja1.png</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/caja1.png</location>
+		</link>
+		<link>
 			<name>assets/fondo.png</name>
 			<type>1</type>
 			<location>C:/Users/FD/Desktop/fondo.png</location>
+		</link>
+		<link>
+			<name>assets/malo1.jpg</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/malo1.jpg</location>
+		</link>
+		<link>
+			<name>assets/zanahoria (2).jpg</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/zanahoria (2).jpg</location>
 		</link>
 	</linkedResources>
 </projectDescription>

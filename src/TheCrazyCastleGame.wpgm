@@ -4,6 +4,6 @@ program bugsBunny {
 	game.height(50)
 	game.width(50)
 	game.ground("fondo.png")
-  game.start()
-
+    game.start()
+    
 } 
