@@ -1,9 +1,50 @@
 import wollok.game.*
+import comida.*
+import conejo.*
+import malo.*
+import niveles.*
+import puertas.*
 program bugsBunny {
- game.title("Bugs Bunny")
-	game.height(50)
-	game.width(50)
+	
+	// configuracion
+    game.title("Bugs Bunny")
+	game.height(15)
+	game.width(15)
 	game.ground("fondo.png")
-    game.start()
+
+//	VISUALES
+   
+
+
+
+	game.addVisual(conejo)
+	game.addVisual(zanahoria)
+	game.addVisual(zanahoria1)
+	game.addVisual(zanahoria2)
+	game.addVisual(malo)
+    game.addVisual(caja)
+      game.addVisual(caja2)
+    game.addVisual(ladrillos)
+     game.addVisual(ladrillosnivel1)
+       game.addVisual(ladrillosnivel2)
+       game.addVisual(ladrillosnivel3)
+       game.addVisual(ladrillosnivel4)
+       game.addVisual(ladrillosnivel5)
+       game.addVisual(puerta0)
+       game.addVisual(puerta1)
+       game.addVisual(puerta2)
+       game.addVisual(puerta3)
+       game.addVisual(puerta4)
+       game.addVisual(puerta5)
+     
+//	TECLADO
+
+   
+	
+//COLISIONES
+   
+	
+//	START
+	game.start()
+}
     
-} 

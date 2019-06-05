@@ -39,9 +39,29 @@
 			<location>C:/Users/FD/Desktop/caja1.png</location>
 		</link>
 		<link>
+			<name>assets/conejo.png</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/conejo.png</location>
+		</link>
+		<link>
 			<name>assets/fondo.png</name>
 			<type>1</type>
 			<location>C:/Users/FD/Desktop/fondo.png</location>
+		</link>
+		<link>
+			<name>assets/ladrillonivel.png</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/ladrillonivel.png</location>
+		</link>
+		<link>
+			<name>assets/ladrillonivel1.png</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/ladrillonivel1.png</location>
+		</link>
+		<link>
+			<name>assets/ladrillos.png</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/ladrillos.png</location>
 		</link>
 		<link>
 			<name>assets/malo1.jpg</name>
@@ -49,9 +69,14 @@
 			<location>C:/Users/FD/Desktop/malo1.jpg</location>
 		</link>
 		<link>
-			<name>assets/zanahoria (2).jpg</name>
+			<name>assets/puerta.png</name>
 			<type>1</type>
-			<location>C:/Users/FD/Desktop/zanahoria (2).jpg</location>
+			<location>C:/Users/FD/Desktop/puerta.png</location>
+		</link>
+		<link>
+			<name>assets/zanahoria.jpg</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/zanahoria.jpg</location>
 		</link>
 	</linkedResources>
 </projectDescription>
