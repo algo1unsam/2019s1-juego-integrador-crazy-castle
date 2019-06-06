@@ -1,7 +1,7 @@
 import wollok.game.*
-object  malo {
+class  Malo {
 	
-	var property position = game.at(2,13)
+	
 	method image()="malo1.jpg"
 		
 

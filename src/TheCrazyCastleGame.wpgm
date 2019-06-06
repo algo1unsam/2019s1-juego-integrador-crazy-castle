@@ -13,29 +13,73 @@ program bugsBunny {
 	game.ground("fondo.png")
 
 //	VISUALES
+game.addVisual(conejo)
+
+
+var puerta0= new Puerta()
+var puerta1= new Puerta()
+const puerta2 = new Puerta()
+const puerta3 = new Puerta()
+const puerta4 = new Puerta()
+const puerta5 = new Puerta()
+
+const ladrillosnivel0= new Ladrillo()
+const ladrillosnivel1= new LadrillosnivelSiguientes()
+const ladrillosnivel2= new LadrillosnivelSiguientes()
+const ladrillosnivel3= new LadrillosnivelSiguientes()
+const ladrillosnivel4= new LadrillosnivelSiguientes()
+const ladrillosnivel5= new LadrillosnivelSiguientes()
+
+const zanahoria= new Zanahoria()
+const zanahoria1= new Zanahoria() 
+const zanahoria2= new Zanahoria() 
+const zanahoria3 = new Zanahoria()
+const zanahoria4 = new Zanahoria()
+
+var caja = new Caja()
+var caja1= new Caja() 	
+
+var malo = new Malo()
+var malo1 = new Malo()
+
+//malo
+game.addVisualIn(malo,game.at(6,13))
+	
+game.addVisualIn(malo1,game.at(5,1)	)
+
+   	// comida
+	game.addVisualIn(zanahoria,game.at(9,9))
+	game.addVisualIn(zanahoria1, game.at(1,1))
+	game.addVisualIn(zanahoria2, game.at(2,13))
+	game.addVisualIn(zanahoria3,game.at(10,13))
+	game.addVisualIn(zanahoria4,game.at(0,5))
+	
+	
+	
+	
+	// cajas
+	
+      game.addVisualIn(caja,game.at(10,5))
+      game.addVisualIn(caja1,game.at(4,9))
+      
    
-
-
-
-	game.addVisual(conejo)
-	game.addVisual(zanahoria)
-	game.addVisual(zanahoria1)
-	game.addVisual(zanahoria2)
-	game.addVisual(malo)
-    game.addVisual(caja)
-      game.addVisual(caja2)
-    game.addVisual(ladrillos)
-     game.addVisual(ladrillosnivel1)
-       game.addVisual(ladrillosnivel2)
-       game.addVisual(ladrillosnivel3)
-       game.addVisual(ladrillosnivel4)
-       game.addVisual(ladrillosnivel5)
-       game.addVisual(puerta0)
-       game.addVisual(puerta1)
-       game.addVisual(puerta2)
-       game.addVisual(puerta3)
-       game.addVisual(puerta4)
-       game.addVisual(puerta5)
+     
+     // ladrillos
+       
+       game.addVisualIn(ladrillosnivel0,game.at(0,0))
+       game.addVisualIn(ladrillosnivel1,game.at(0,4))
+       game.addVisualIn(ladrillosnivel2,game.at(4,8))
+       game.addVisualIn(ladrillosnivel3,game.at(0,12))
+       game.addVisualIn(ladrillosnivel4,game.at(10,12))
+       game.addVisualIn(ladrillosnivel5,game.at(10,4))
+     // puertas
+     
+       game.addVisualIn(puerta1,game.at(3,1))
+       game.addVisualIn(puerta2, game.at(2,5))
+       game.addVisualIn(puerta3,game.at(7,9))
+       game.addVisualIn(puerta4,game.at(4,13))
+       game.addVisualIn(puerta5,game.at(13,13))
+       game.addVisualIn(puerta0, game.at(13,5))
      
 //	TECLADO
 
