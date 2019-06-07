@@ -18,13 +18,13 @@ game.addVisual(conejo)
 
 //entrada
 var puerta0= new SubeDeNivel(position=game.at(3,2))
-puerta0.salida(game.at(5,4))
+puerta0.saleporPuerta(game.at(5,4))
 
 const puerta2 = new SubeDeNivel(position=game.at(7,4))
-puerta0.salida(game.at(7,6))
+puerta0.saleporPuerta(game.at(7,6))
 
 const puerta3 = new SubeDeNivel(position=game.at(10,6))
-puerta0.salida(game.at(10,8))
+puerta0.saleporPuerta(game.at(10,8))
 
 const piso= new Piso(position=game.at(1,1))
 const ladrillosnivel0= new Ladrillo()

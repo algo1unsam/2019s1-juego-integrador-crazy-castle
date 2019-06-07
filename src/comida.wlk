@@ -20,7 +20,7 @@ class Caja {
 		self.teArrastra()
 	}
 	method teArrastra(){
-		
+		self.position().right(1))
 	}
 
 }
