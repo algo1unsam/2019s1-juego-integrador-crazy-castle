@@ -4,7 +4,7 @@ object conejo {
 
 	var property zanahorias = 8
 	var puntos = 0
-	var property position = game.at(2, 1)
+	var property position = game.at(12, 1)
 
 	method image() ="conejo2.png"
 
@@ -15,6 +15,11 @@ object conejo {
 	method comer(unazanahoria) {
 		puntos += 100
 		game.removeVisual(unazanahoria)
+	}
+	
+	method chocaCon(unelemento)
+	{
+	  unelemento.seArrastra()
 	}
 
 }

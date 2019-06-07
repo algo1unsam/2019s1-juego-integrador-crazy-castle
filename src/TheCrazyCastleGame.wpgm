@@ -42,8 +42,8 @@ const zanahoria2= new Zanahoria()
 const zanahoria3 = new Zanahoria()
 const zanahoria4 = new Zanahoria()
 
-var caja = new Caja()
-var caja1= new Caja() 	
+var caja = new Caja(position=game.at(10,5))
+var caja1= new Caja(position=game.at(4,9)) 	
 
 var malo = new Malo()
 var malo1 = new Malo()
@@ -64,8 +64,8 @@ game.addVisualIn(malo1,game.at(5,1)	)
 	
 	// cajas
 	
-      game.addVisualIn(caja,game.at(10,5))
-      game.addVisualIn(caja1,game.at(4,9))
+      game.addVisual(caja)
+      game.addVisual(caja1)
       
    
      
@@ -94,6 +94,7 @@ game.addVisualIn(malo1,game.at(5,1)	)
 	
 //COLISIONES
     game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
+    
 	
 //	START
 	game.start()

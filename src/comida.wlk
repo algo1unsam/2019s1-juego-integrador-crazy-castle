@@ -12,12 +12,20 @@ class Zanahoria {
 }
 
 class Caja {
-
+    var property position
 	method image() = "caja1.png"
    
 	method chocaCon(alguien) {
-	
-	}
+	 
+  	var elementos=#{}
+		elementos= game.colliders(self)
+		
+		elementos.remove(self)
+		
+		self.position(self.position().right(1))
+		}
+		
+		
 	
 
 }
