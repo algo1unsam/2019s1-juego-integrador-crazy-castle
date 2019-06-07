@@ -60,7 +60,6 @@ game.addVisualIn(malo1,game.at(5,1)	)
 	
 	
 	
-	
 	// cajas
 	
       game.addVisualIn(caja,game.at(10,5))
