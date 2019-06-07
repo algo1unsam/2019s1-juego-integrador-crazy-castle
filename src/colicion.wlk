@@ -5,7 +5,7 @@ import niveles.*
 import puertas.*
 import piso.*
 
-object colicion{
+object colision{
 	var element=[]
 	method derecha(){
 		self.muevo(conejo.position().right(1))
