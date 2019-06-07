@@ -12,7 +12,7 @@ class Ladrillo{
 class LadrillosnivelSiguientes inherits Ladrillo{
    
 	override method image()="ladrillonivel.png"
-	method choque(alguien){
+	override method choque(alguien){
 		
 	}
 }

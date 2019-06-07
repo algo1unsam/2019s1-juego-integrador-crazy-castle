@@ -78,11 +78,8 @@ game.addVisualIn(malo1,game.at(5,1)	)
        game.addVisualIn(ladrillosnivel5,game.at(10,4))
      // puertas
      
-       game.addVisualIn(puerta1,game.at(3,1))
        game.addVisualIn(puerta2, game.at(2,5))
        game.addVisualIn(puerta3,game.at(7,9))
-       game.addVisualIn(puerta4,game.at(4,13))
-       game.addVisualIn(puerta5,game.at(13,13))
        game.addVisualIn(puerta0, game.at(13,5))
        
        //conejo
