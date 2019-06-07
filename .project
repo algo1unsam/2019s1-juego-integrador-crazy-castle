@@ -32,11 +32,4 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.uqbar.project.wollok.wollokNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>assets/caja1.png</name>
-			<type>1</type>
-			<location>C:/Users/FD/Desktop/caja1.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>
