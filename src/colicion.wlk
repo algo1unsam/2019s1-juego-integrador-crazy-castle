@@ -15,7 +15,7 @@ object colicion{
 	}
 	method muevo(_direccion){
 		element=_direccion.allElements()
-		element.remove(conejo)
+		//element.remove(conejo)
 		if(self.choque()){
 			conejo.position(_direccion)
 		}else{

@@ -2,7 +2,7 @@ import wollok.game.*
 
 class  Zanahoria{
 
-	method image()="zanahoria.jpg"
+	method image()="zanahoria.png"
 	method choque(alguien){
 		
 	}
