@@ -3,7 +3,7 @@ class  Malo {
 	
 	
 	method image()="malo1.png"
-	method choque(alguien){
+	method chocaCon(alguien){
 		
 	}	
 
