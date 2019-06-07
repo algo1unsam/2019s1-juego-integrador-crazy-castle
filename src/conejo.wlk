@@ -6,12 +6,12 @@ object conejo {
 	var puntos = 0
 	var property position = game.at(2, 2)
 
-	method image() = "conejo grande.png"
+	method image() ="conejo2.png"
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)
 	}
-
+ 
 	method comer(unazanahoria) {
 		puntos += 100
 		game.removeVisual(unazanahoria)
