@@ -10,7 +10,7 @@ class Puerta{
 }
 class SubeDeNivel inherits Puerta{
 	var property puertaSalida=null
-	override method position() = game.at(3,1)
+	override method position() = game.at(12,1)
 	override method image()="puerta subida.png"
 	method salida(cordenada){
 		puertaSalida= new BajaDeNivel(position=cordenada,puertaEntrada=self)
