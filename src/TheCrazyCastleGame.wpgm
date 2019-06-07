@@ -26,7 +26,6 @@ puerta0.salida(game.at(7,6))
 const puerta3 = new SubeDeNivel(position=game.at(10,6))
 puerta0.salida(game.at(10,8))
 
-const piso= new Piso(position=game.at(1,1))
 const ladrillosnivel0= new Ladrillo()
 const ladrillosnivel1= new LadrillosnivelSiguientes()
 const ladrillosnivel2= new LadrillosnivelSiguientes()
