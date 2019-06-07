@@ -1,4 +1,5 @@
 import wollok.game.*
+import conejo.*
 
 class Zanahoria {
 
@@ -13,9 +14,11 @@ class Zanahoria {
 class Caja {
 
 	method image() = "caja1.png"
-
+   
 	method chocaCon(alguien) {
+	
 	}
+	
 
 }
 
