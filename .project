@@ -74,6 +74,11 @@
 			<location>C:/Users/FD/Desktop/puerta.png</location>
 		</link>
 		<link>
+			<name>assets/tiny-toons.jpg</name>
+			<type>1</type>
+			<location>C:/Users/FD/Desktop/tiny-toons.jpg</location>
+		</link>
+		<link>
 			<name>assets/zanahoria.jpg</name>
 			<type>1</type>
 			<location>C:/Users/FD/Desktop/zanahoria.jpg</location>
