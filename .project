@@ -43,6 +43,7 @@
 			<type>1</type>
 			<location>C:/Users/FD/Desktop/conejo.png</location>
 		</link>
+<<<<<<< HEAD
 		<link>
 			<name>assets/fondo.png</name>
 			<type>1</type>
@@ -83,5 +84,7 @@
 			<type>1</type>
 			<location>C:/Users/FD/Desktop/zanahoria.jpg</location>
 		</link>
+=======
+>>>>>>> branch 'master' of https://github.com/algo1unsam/2019s1-juego-integrador-crazy-castle.git
 	</linkedResources>
 </projectDescription>
