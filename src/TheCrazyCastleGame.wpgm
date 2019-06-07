@@ -11,7 +11,7 @@ program bugsBunny {
     game.title("Bugs Bunny")
 	game.height(15)
 	game.width(15)
-	game.ground("fondo1.png")
+	game.ground("fondo.png")
 
 //	VISUALES
 game.addVisual(conejo)
