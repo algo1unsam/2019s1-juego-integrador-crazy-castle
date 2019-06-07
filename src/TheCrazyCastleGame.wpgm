@@ -11,7 +11,7 @@ program bugsBunny {
     game.title("Bugs Bunny")
 	game.height(15)
 	game.width(15)
-	game.ground("fondo.png")
+	game.ground("fondo1.png")
 
 //	VISUALES
 game.addVisual(conejo)
@@ -88,8 +88,6 @@ game.addVisualIn(malo1,game.at(5,1)	)
 //	TECLADO
 
 //conejo movimiento
-	keyboard.up().onPressDo { conejo.move(conejo.position().up(1)) }
-	keyboard.down().onPressDo { conejo.move(conejo.position().down(1)) }
 	keyboard.left().onPressDo { conejo.move(conejo.position().left(1)) }
 	keyboard.right().onPressDo {conejo.move(conejo.position().right(1)) }	
    
