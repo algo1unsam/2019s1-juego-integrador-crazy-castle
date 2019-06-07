@@ -1,19 +1,21 @@
 import wollok.game.*
 
-class  Zanahoria{
+class Zanahoria {
 
-	method image()="zanahoria.png"
-	method choque(alguien){
-		
+	method image() = "zanahoria.png"
+
+	method chocaCon(unconejo) {
+		unconejo.comer(self)
 	}
+
 }
 
+class Caja {
 
-class Caja{
+	method image() = "caja1.png"
 
-	method image()="caja1.png"
-	method choque(alguien){
-		
+	method chocaCon(alguien) {
 	}
+
 }
 
