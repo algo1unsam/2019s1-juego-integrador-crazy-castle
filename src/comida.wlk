@@ -1,4 +1,5 @@
 import wollok.game.*
+import conejo.*
 
 class Zanahoria {
 
@@ -15,6 +16,11 @@ class Caja {
 	method image() = "caja1.png"
 
 	method chocaCon(alguien) {
+		if(alguien==conejo)
+		self.teArrastra()
+	}
+	method teArrastra(){
+		
 	}
 
 }

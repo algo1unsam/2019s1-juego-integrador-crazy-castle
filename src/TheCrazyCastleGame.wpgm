@@ -93,7 +93,7 @@ game.addVisualIn(malo1,game.at(5,1)	)
    
 	
 //COLISIONES
-   
+    game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
 	
 //	START
 	game.start()
