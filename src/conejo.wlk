@@ -6,7 +6,7 @@ object conejo {
 	var puntos = 0
 	var property position = game.at(2, 2)
 
-	method image() = "conejo.png"
+	method image() ="conejo.png"
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)

@@ -68,7 +68,6 @@ game.addVisualIn(malo1,game.at(5,1)	)
    
      
      // ladrillos
-       //game.addVisual(piso)
        game.addVisualIn(ladrillosnivel0,game.at(0,0))
        game.addVisualIn(ladrillosnivel1,game.at(0,4))
        game.addVisualIn(ladrillosnivel2,game.at(4,8))
