@@ -17,15 +17,17 @@ program bugsBunny {
 game.addVisual(conejo)
 
 //entrada
-var puerta0= new SubeDeNivel(position=game.at(3,2))
-puerta0.saleporPuerta(game.at(5,4))
+var puerta0= new SubeDeNivel(position=game.at(13,1))
+puerta0.saleporPuerta(game.at(13,5))
 
-const puerta2 = new SubeDeNivel(position=game.at(7,4))
-puerta0.saleporPuerta(game.at(7,6))
+const puerta2 = new SubeDeNivel(position=game.at(10,5))
+puerta0.saleporPuerta(game.at(10,9))
 
-const puerta3 = new SubeDeNivel(position=game.at(10,6))
-puerta0.saleporPuerta(game.at(10,8))
+const puerta3 = new SubeDeNivel(position=game.at(1,5))
+puerta0.saleporPuerta(game.at(1,13))
 
+var puerta4= new SubeDeNivel(position=game.at(4,1))
+puerta4.saleporPuerta(game.at(4,5))
 
 
 
@@ -78,9 +80,10 @@ game.addVisualIn(malo1,game.at(5,1)	)
        game.addVisualIn(ladrillosnivel5,game.at(10,4))
      // puertas
      
-       game.addVisualIn(puerta2, game.at(2,5))
-       game.addVisualIn(puerta3,game.at(7,9))
-       game.addVisualIn(puerta0, game.at(13,5))
+       game.addVisual(puerta2)
+       game.addVisual(puerta3)
+       game.addVisual(puerta0)
+       game.addVisual(puerta4)
        
        //conejo
        game.addVisual(conejo)
