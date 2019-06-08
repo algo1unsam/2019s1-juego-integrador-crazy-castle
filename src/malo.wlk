@@ -35,7 +35,7 @@ class Malo {
 		} 
 	}
 
-
+  
 	method resetpasos() {
 		cantidadpasos =5
 		cantidadpasosDerecha =5 
