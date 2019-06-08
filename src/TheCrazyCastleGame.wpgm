@@ -70,8 +70,8 @@ var caja1= new Caja(position=game.at(4,9))
 var malo = new Malo(imagen="malo1.png", position= game.at(15,1), cantidadpasos = 10,cantidadpasosDerecha=10)
 var malo1 = new Malo(imagen="malo1.png",position=game.at(6,13), cantidadpasos = 5,cantidadpasosDerecha=5)
 //malo
-	game.addVisualIn(malo, game.at(6, 13))
-	game.addVisualIn(malo1, game.at(5, 1))
+	game.addVisual(malo)
+	game.addVisual(malo1)
 		// comida
 	game.addVisualIn(zanahoria, game.at(9, 9))
 	game.addVisualIn(zanahoria1, game.at(1, 1))
@@ -173,13 +173,11 @@ colision.izquierda()
 	
 	keyboard.right().onPressDo {
 		colision.derecha()
-		//malo.move(malo.position().right(1))
 	}	
    
    //movimiento de los malos
 
- //  game.onTick(2000, malo, {=>malo.move(malo)})
-
+ 
 //COLISIONES
    game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
     game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
