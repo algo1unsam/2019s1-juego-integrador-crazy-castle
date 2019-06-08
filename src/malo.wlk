@@ -5,6 +5,10 @@ class  Malo {
 	
 	method image()=imagen
 	method chocaCon(alguien){
+		var elementos=#{}
+		elementos= game.colliders(self)
+		elementos.remove(self)
+		alguien.restaPuntos()
 		
 	}	
 	method move(pos,personaje){

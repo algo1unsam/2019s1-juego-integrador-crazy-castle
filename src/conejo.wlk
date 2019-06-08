@@ -3,7 +3,7 @@ import wollok.game.*
 object conejo {
 	var property estado="vivo"
 	var property zanahorias = 8
-	var puntos = 0
+	var  puntos = 0
 	var property position = game.at(12, 1)
 	var imagen="conejo2.png"
 
@@ -21,6 +21,13 @@ object conejo {
 	method chocaCon(alguien){
 		
 	}
+
+	
+	method restaPuntos(){
+		puntos -=100
+	}
+    
+
 	method puerta(){
 		var element=#{}
 		var puerta

@@ -5,7 +5,7 @@ import malo.*
 import niveles.*
 import puertas.*
 import piso.*
-import colicion.*
+import colision.*
 program bugsBunny {
 	
 	// configuracion
@@ -18,9 +18,13 @@ program bugsBunny {
 game.addVisual(conejo)
 
 //entrada
-var puerta0= new SubeDeNivel(position=game.at(13,1),puertaSalida=puerta1)
-var puerta1= new BajaDeNivel(position=game.at(13,5),puertaEntrada=puerta0)
 
+
+var puerta0= new SubeDeNivel(position=game.at(13,1))
+var puerta1= new BajaDeNivel(position=game.at(13,5))
+
+puerta1.puertaEntrada(puerta0)
+puerta0.puertaSalida(puerta1)
 const puerta2 = new SubeDeNivel(position=game.at(10,5))
 var puerta3= new BajaDeNivel(position=game.at(10,9),puertaEntrada=puerta2)
 
@@ -100,7 +104,9 @@ game.addVisualIn(malo1,game.at(5,1)	)
 	//}	
    
    //movimiento de los malos
+
  //  game.onTick(2000, malo, {=>malo.move(malo)})
+
 //COLISIONES
     game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
     
