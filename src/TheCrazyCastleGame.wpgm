@@ -50,8 +50,8 @@ const zanahoria4 = new Zanahoria()
 var caja = new Caja(position=game.at(10,5))
 var caja1= new Caja(position=game.at(4,9)) 	
 
-var malo = new Malo(imagen="malo1.png", position= game.at(5,1))
-var malo1 = new Malo(imagen="malo1.png",position=game.at(6,13))
+var malo = new Malo(imagen="malo1.png", position= game.at(15,1), cantidadpasos = 10,cantidadpasosDerecha=10)
+var malo1 = new Malo(imagen="malo1.png",position=game.at(6,13), cantidadpasos = 5,cantidadpasosDerecha=5)
 
 //malos
 game.addVisual(malo)
@@ -95,9 +95,12 @@ game.addVisual(malo1)
 //conejo movimiento
 	keyboard.left().onPressDo {
 colision.izquierda()
+
 	}
+	
 	keyboard.right().onPressDo {
 		colision.derecha()
+		//malo.move(malo.position().right(1))
 	}	
    
    //movimiento de los malos
@@ -105,8 +108,10 @@ colision.izquierda()
  //  game.onTick(2000, malo, {=>malo.move(malo)})
 
 //COLISIONES
-    game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
-    
+   // game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
+   game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
+     game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
+
 //	START
 	game.start()
 }

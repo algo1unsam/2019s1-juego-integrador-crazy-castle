@@ -4,14 +4,17 @@ import malo.*
 import niveles.*
 import puertas.*
 import piso.*
-
+import malo.*
 object colision{
 	var element=[]
 	method derecha(){
 		self.muevo(conejo.position().right(1),"der")
+		
 	}
 	method izquierda(){
+		
 		self.muevo(conejo.position().left(1),"izq")
+		
 	}
 	method muevo(_direccion,dir){
 		element=_direccion.allElements()

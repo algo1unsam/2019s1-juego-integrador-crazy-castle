@@ -10,6 +10,7 @@ object conejo {
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)
+		
 	}
  
 	method comer(unazanahoria) {
