@@ -8,6 +8,9 @@ class Puerta{
 	method chocaCon(alguien){
 			
 	}
+	method choque(persona,pos){
+		
+	}
 }
 class SubeDeNivel inherits Puerta{
 	var property puertaSalida=null
@@ -21,6 +24,7 @@ class SubeDeNivel inherits Puerta{
 		conejo.position(puertaSalida.position())
 	}
 	
+	
 }
 class BajaDeNivel inherits Puerta{
 	var property puertaEntrada=null
@@ -28,5 +32,5 @@ class BajaDeNivel inherits Puerta{
 	override method entraPorPuerta(){
 		conejo.position(puertaEntrada.position())
 	}
-	method choque(persona,pos){}
+	
 }

@@ -8,6 +8,7 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
+	method choque(persona,pos){}
 
 }
 
