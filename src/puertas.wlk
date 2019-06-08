@@ -27,7 +27,7 @@ class SubeDeNivel inherits Puerta{
 	
 }
 class BajaDeNivel inherits Puerta{
-	var property puertaEntrada=null
+	var property puertaEntrada
 	override method image()="puerta bajada.png"
 	override method entraPorPuerta(){
 		conejo.position(puertaEntrada.position())
