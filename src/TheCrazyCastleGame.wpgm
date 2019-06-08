@@ -147,6 +147,7 @@ program bugsBunny {
 	game.addVisualIn(ladrillosnivel5, game.at(17, 4))
 	game.addVisualIn(ladrillosnivel5, game.at(18, 4))
 	game.addVisualIn(ladrillosnivel5, game.at(19, 4))
+	
 		// puertas
 	game.addVisual(puerta2)
 	game.addVisual(puerta3)
