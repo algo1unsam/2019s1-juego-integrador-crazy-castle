@@ -31,13 +31,10 @@ class Caja {
 		self.position(self.position().right(1))
 		}
 		//mati
-		method arrastra(pos)
-		{var elementos=#{}
-		elementos= game.colliders(self)
+		method arrastra(pos){
 		
-		elementos.remove(self)
 		
-		self.position(self.position().right(1))
+		self.position(pos)
 		}
 		method choque(persona,pos){
 		 conejo.position(self.position())

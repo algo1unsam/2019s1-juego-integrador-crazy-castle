@@ -17,9 +17,10 @@ object colision{
 		
 	}
 	method muevo(_direccion,dir){
-		element=_direccion.allElements()
 		conejo.position(_direccion)
-		if(self.choque()and conejo.estado()){
+		element=_direccion.allElements()
+		element.remove(conejo)
+		if(element.isEmpty() and (not conejo.estado())){
 			
 			
 		}else{
@@ -37,5 +38,4 @@ object colision{
 		}
 		
 	}
-	method choque()=element.isEmpty()
 }

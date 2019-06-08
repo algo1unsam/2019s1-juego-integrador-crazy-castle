@@ -17,7 +17,7 @@ class SubeDeNivel inherits Puerta{
 	override method position() = game.at(12,1)
 	override method image()="puerta subida.png"
 	method saleporPuerta(cordenada){
-		puertaSalida= new BajaDeNivel(position=cordenada,puertaEntrada=self)
+		puertaSalida= new BajaDeNivel(position=cordenada,puertaEntrada=position)
 		game.addVisual(puertaSalida)
 	}
 	override method entraPorPuerta(){
@@ -27,10 +27,10 @@ class SubeDeNivel inherits Puerta{
 	
 }
 class BajaDeNivel inherits Puerta{
-	var property puertaEntrada
+	var property puertaEntrada=null
 	override method image()="puerta bajada.png"
 	override method entraPorPuerta(){
-		conejo.position(puertaEntrada.position())
+		conejo.position(puertaEntrada)
 	}
 	
 }

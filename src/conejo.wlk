@@ -9,13 +9,17 @@ object conejo {
 	method image()  ="conejo2.png"
 
 	method move(nuevaPosicion) {
-		self.position(nuevaPosicion)
-		
+	if(self.sigueVivo()){
+		self.position(nuevaPosicion)	
+	}
 	}
  
 	method comer(unazanahoria) {
+		if(self.sigueVivo()){
 		puntos += 100
 		game.removeVisual(unazanahoria)
+	}
+	
 	}
 	
 	method chocaCon(alguien){
@@ -37,7 +41,7 @@ object conejo {
 		var element=#{}
 		var puerta
 		element=position.allElements()	
-		if(not element.isEmpty()){
+		if(self.sigueVivo() and not element.isEmpty()){
 		puerta=element.anyOne()
 		puerta.entraPorPuerta()
 		
@@ -47,9 +51,12 @@ object conejo {
 	}
 	method estado() =false
 	method muerto() {
-		imagen="conejo2.png"
+		game.removeVisual(self)
+		imagen="conejo.png"
+		game.addVisual(self)
 		estado=true
 	}
+	method sigueVivo()=estado
 
 }
 
