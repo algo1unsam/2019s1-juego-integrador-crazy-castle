@@ -29,7 +29,22 @@ class Caja {
 		
 		self.position(self.position().right(1))
 		}
-	
+		//mati
+		method arrastra(pos)
+		{var elementos=#{}
+		elementos= game.colliders(self)
+		
+		elementos.remove(self)
+		
+		self.position(self.position().right(1))
+		}
+		method choque(persona,pos){
+		 conejo.position(self.position())
+		 self.arrastra(pos)
+		 
+			
+		}
 
 }
+
 
