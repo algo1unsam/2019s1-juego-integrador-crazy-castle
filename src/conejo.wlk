@@ -20,6 +20,14 @@ object conejo {
 	method chocaCon(alguien){
 		
 	}
+	method puerta(){
+		var element=#{}
+		var puerta
+		element=position.allElements()
+		element.remove(self)
+		puerta=element.anyOne()
+		puerta.entraPorPuerta()
+	}
 
 }
 
