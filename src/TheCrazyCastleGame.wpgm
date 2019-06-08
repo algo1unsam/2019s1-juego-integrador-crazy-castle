@@ -50,13 +50,12 @@ const zanahoria4 = new Zanahoria()
 var caja = new Caja(position=game.at(10,5))
 var caja1= new Caja(position=game.at(4,9)) 	
 
-var malo = new Malo(imagen="malo1.png")
-var malo1 = new Malo(imagen="malo1.png")
+var malo = new Malo(imagen="malo1.png", position= game.at(5,1))
+var malo1 = new Malo(imagen="malo1.png",position=game.at(6,13))
 
-//malo
-game.addVisualIn(malo,game.at(6,13))
-	
-game.addVisualIn(malo1,game.at(5,1)	)
+//malos
+game.addVisual(malo)
+game.addVisual(malo1)
 
    	// comida
 	game.addVisualIn(zanahoria,game.at(9,9))
