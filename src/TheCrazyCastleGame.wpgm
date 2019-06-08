@@ -11,7 +11,7 @@ program bugsBunny {
 	// configuracion
     game.title("Bugs Bunny")
 	game.height(15)
-	game.width(15)
+	game.width(25)
 	game.ground("fondo1.png")
 
 //	VISUALES
