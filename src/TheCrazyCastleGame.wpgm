@@ -90,17 +90,17 @@ game.addVisualIn(malo1,game.at(5,1)	)
 //	TECLADO
  keyboard.up().onPressDo {conejo.puerta()  }
 //conejo movimiento
-	keyboard.left().onPressDo {
+	//keyboard.left().onPressDo {
 		//conejo.move(conejo.position().left(1))
-colision.izquierda()
-	}
-	keyboard.right().onPressDo {
-		conejo.move(conejo.position().right(1))
-		colision.derecha()
-	}	
+//colision.izquierda()
+	//}
+	//keyboard.right().onPressDo {
+		//conejo.move(conejo.position().right(1))
+		//colision.derecha()
+	//}	
    
    //movimiento de los malos
-   game.onTick(2000, malo, {=>malo.move(malo)})
+ //  game.onTick(2000, malo, {=>malo.move(malo)})
 //COLISIONES
     game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
     
