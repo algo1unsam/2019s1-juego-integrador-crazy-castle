@@ -27,7 +27,8 @@ class Caja {
 		
 		elementos.remove(self)
 		
-		self.position(self.position().right(1))}
+		self.position(self.position().right(1))
+		}
 	
 
 }
