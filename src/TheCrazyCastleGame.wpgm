@@ -18,9 +18,13 @@ program bugsBunny {
 game.addVisual(conejo)
 
 //entrada
-var puerta0= new SubeDeNivel(position=game.at(13,1),puertaSalida=puerta1)
-var puerta1= new BajaDeNivel(position=game.at(13,5),puertaEntrada=puerta0)
 
+
+var puerta0= new SubeDeNivel(position=game.at(13,1))
+var puerta1= new BajaDeNivel(position=game.at(13,5))
+
+puerta1.puertaentrada(puerta0)
+puerta0.puertaSalida(puerta1)
 const puerta2 = new SubeDeNivel(position=game.at(10,5))
 var puerta3= new BajaDeNivel(position=game.at(10,9),puertaEntrada=puerta2)
 
