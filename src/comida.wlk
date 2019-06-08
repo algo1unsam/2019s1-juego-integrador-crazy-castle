@@ -17,15 +17,17 @@ class Caja {
    
 	method chocaCon(alguien) {
 	 
-  	var elementos=#{}
+	 self.arrastra()
+  	
+		}
+		
+		method arrastra()
+		{var elementos=#{}
 		elementos= game.colliders(self)
 		
 		elementos.remove(self)
 		
-		self.position(self.position().right(1))
-		}
-		
-		
+		self.position(self.position().right(1))}
 	
 
 }

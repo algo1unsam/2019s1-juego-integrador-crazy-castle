@@ -17,9 +17,8 @@ object conejo {
 		game.removeVisual(unazanahoria)
 	}
 	
-	method chocaCon(unelemento)
-	{
-	  unelemento.seArrastra()
+	method chocaCon(alguien){
+		
 	}
 
 }
