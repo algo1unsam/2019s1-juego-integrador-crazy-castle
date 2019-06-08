@@ -17,17 +17,18 @@ program bugsBunny {
 game.addVisual(conejo)
 
 //entrada
-var puerta0= new SubeDeNivel(position=game.at(13,1))
-puerta0.saleporPuerta(game.at(13,5))
+var puerta0= new SubeDeNivel(position=game.at(13,1),puertaSalida=puerta1)
+var puerta1= new BajaDeNivel(position=game.at(13,5),puertaEntrada=puerta0)
 
 const puerta2 = new SubeDeNivel(position=game.at(10,5))
-puerta2.saleporPuerta(game.at(10,9))
+var puerta3= new BajaDeNivel(position=game.at(10,9),puertaEntrada=puerta2)
 
-const puerta3 = new SubeDeNivel(position=game.at(1,5))
-puerta3.saleporPuerta(game.at(1,13))
+const puerta4 = new SubeDeNivel(position=game.at(1,5))
+var puerta5= new BajaDeNivel(position=game.at(1,13),puertaEntrada=puerta4)
 
-var puerta4= new SubeDeNivel(position=game.at(4,1))
-puerta4.saleporPuerta(game.at(4,5))
+var puerta6= new SubeDeNivel(position=game.at(4,1))
+var puerta7= new BajaDeNivel(position=game.at(4,5),puertaEntrada=puerta6)
+
 
 
 
@@ -84,6 +85,10 @@ game.addVisualIn(malo1,game.at(5,1)	)
        game.addVisual(puerta3)
        game.addVisual(puerta0)
        game.addVisual(puerta4)
+       game.addVisual(puerta1)
+       game.addVisual(puerta5)
+       game.addVisual(puerta6)
+       game.addVisual(puerta7)
        
        //conejo
        game.addVisual(conejo)
