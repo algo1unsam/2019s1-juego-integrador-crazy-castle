@@ -1,5 +1,7 @@
 import wollok.game.*
 
+//https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
+//game.sound()permite poner musica al juego
 class Ladrillo{
 	
 	var property position = game.at(0,0)
