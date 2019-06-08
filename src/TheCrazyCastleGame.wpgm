@@ -5,7 +5,7 @@ import malo.*
 import niveles.*
 import puertas.*
 import piso.*
-import colicion.*
+import colision.*
 program bugsBunny {
 	
 	// configuracion
