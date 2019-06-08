@@ -15,9 +15,9 @@ object colision{
 	}
 	method muevo(_direccion,dir){
 		element=_direccion.allElements()
-		//element.remove(conejo)
+		conejo.position(_direccion)
 		if(self.choque()and conejo.estado()){
-			conejo.position(_direccion)
+			
 			
 		}else{
 			if(conejo.estado()){
@@ -32,7 +32,7 @@ object colision{
 		}
 		
 		}
-		element.allRemove(element)
+		
 	}
 	method choque()=element.isEmpty()
 }

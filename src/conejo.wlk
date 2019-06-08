@@ -1,7 +1,6 @@
 import wollok.game.*
-
 object conejo {
-	var property estado="vivo"
+	var property estado=true
 	var property zanahorias = 8
 	var  puntos = 100
 	var property position = game.at(12, 1)
@@ -24,24 +23,31 @@ object conejo {
 
 	
 	method restaPuntos(){
+		if(puntos>=100){
 		puntos -=100
+		
+		}else{
+			self.muerto()
+		}
 	}
     
 
 	method puerta(){
 		var element=#{}
 		var puerta
-		element=position.allElements()
-		element.remove(self)
-	
-		
+		element=position.allElements()	
+		if(not element.isEmpty()){
 		puerta=element.anyOne()
 		puerta.entraPorPuerta()
+		
+		}else{
+			game.say(self,"no veo ninguna puerta")
+		}
 	}
-	method estado() =estado=="vivo"
+	method estado() =false
 	method muerto() {
 		imagen="conejo2.png"
-		estado="muerto"
+		estado=true
 	}
 
 }

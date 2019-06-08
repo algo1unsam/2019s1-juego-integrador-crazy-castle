@@ -17,6 +17,7 @@ class LadrillosnivelSiguientes inherits Ladrillo{
 		alguien.position(alguien.position().up(1))
 		
 	}
+	
 
 }
 
