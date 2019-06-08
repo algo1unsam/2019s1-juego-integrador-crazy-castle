@@ -182,7 +182,7 @@ colision.izquierda()
 
 //COLISIONES
    game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
-     game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
+    game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
 
 	game.whenCollideDo(conejo, { algo => algo.chocaCon(conejo) })
 //	START
