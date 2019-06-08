@@ -1,12 +1,13 @@
 import wollok.game.*
 
 object conejo {
-
+	var property estado="vivo"
 	var property zanahorias = 8
 	var puntos = 0
 	var property position = game.at(12, 1)
+	var imagen="conejo2.png"
 
-	method image() ="conejo2.png"
+	method image()  ="conejo2.png"
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)
@@ -25,8 +26,15 @@ object conejo {
 		var puerta
 		element=position.allElements()
 		element.remove(self)
+	
+		
 		puerta=element.anyOne()
 		puerta.entraPorPuerta()
+	}
+	method estado() =estado=="vivo"
+	method muerto() {
+		imagen="conejo2.png"
+		estado="muerto"
 	}
 
 }

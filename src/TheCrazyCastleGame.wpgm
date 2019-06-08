@@ -5,6 +5,7 @@ import malo.*
 import niveles.*
 import puertas.*
 import piso.*
+import colicion.*
 program bugsBunny {
 	
 	// configuracion
@@ -29,9 +30,6 @@ var puerta5= new BajaDeNivel(position=game.at(1,13),puertaEntrada=puerta4)
 var puerta6= new SubeDeNivel(position=game.at(4,1))
 var puerta7= new BajaDeNivel(position=game.at(4,5),puertaEntrada=puerta6)
 
-
-
-
 const ladrillosnivel0= new Ladrillo()
 const ladrillosnivel1= new LadrillosnivelSiguientes()
 const ladrillosnivel2= new LadrillosnivelSiguientes()
@@ -48,8 +46,8 @@ const zanahoria4 = new Zanahoria()
 var caja = new Caja(position=game.at(10,5))
 var caja1= new Caja(position=game.at(4,9)) 	
 
-var malo = new Malo()
-var malo1 = new Malo()
+var malo = new Malo(imagen="malo1.png")
+var malo1 = new Malo(imagen="malo1.png")
 
 //malo
 game.addVisualIn(malo,game.at(6,13))
@@ -63,15 +61,11 @@ game.addVisualIn(malo1,game.at(5,1)	)
 	game.addVisualIn(zanahoria3,game.at(10,13))
 	game.addVisualIn(zanahoria4,game.at(0,5))
 	
-	
-	
 	// cajas
 	
       game.addVisual(caja)
       game.addVisual(caja1)
-      
-   
-     
+       
      // ladrillos
        game.addVisualIn(ladrillosnivel0,game.at(0,0))
        game.addVisualIn(ladrillosnivel1,game.at(0,4))
@@ -96,15 +90,20 @@ game.addVisualIn(malo1,game.at(5,1)	)
 //	TECLADO
  keyboard.up().onPressDo {conejo.puerta()  }
 //conejo movimiento
-	keyboard.left().onPressDo { conejo.move(conejo.position().left(1)) }
-	keyboard.right().onPressDo {conejo.move(conejo.position().right(1)) }	
+	keyboard.left().onPressDo {
+		//conejo.move(conejo.position().left(1))
+colision.izquierda()
+	}
+	keyboard.right().onPressDo {
+		conejo.move(conejo.position().right(1))
+		colision.derecha()
+	}	
    
-	
+   //movimiento de los malos
+   game.onTick(2000, malo, {=>malo.move(malo)})
 //COLISIONES
     game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
     
-	
 //	START
 	game.start()
 }
-    

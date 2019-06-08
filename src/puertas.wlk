@@ -28,5 +28,5 @@ class BajaDeNivel inherits Puerta{
 	override method entraPorPuerta(){
 		conejo.position(puertaEntrada.position())
 	}
-	
+	method choque(persona,pos){}
 }
