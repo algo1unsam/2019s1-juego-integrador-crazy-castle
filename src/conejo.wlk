@@ -5,6 +5,7 @@ object conejo {
 	var  puntos = 100
 	var property position = game.at(12, 1)
 	var imagen="conejo2.png"
+	var property direccion
 
 	method image()  ="conejo2.png"
 
@@ -51,5 +52,14 @@ object conejo {
 	}
 	method sigueVivo()=estado
 	method eliminoConejo(elemento){if(elemento==self){return elemento.remove(self)}else{return elemento}}
+	method derecha(){
+		self.move(self.position().right(1))
+		direccion="der"
+	}
+	method izquierda(){
+		direccion="izq"
+		self.move(self.position().left(1))
+		
+	}
 }
 
