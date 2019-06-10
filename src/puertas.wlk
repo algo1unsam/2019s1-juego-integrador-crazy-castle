@@ -9,7 +9,7 @@ class Puerta{
 			
 	}
 	method choque(persona,pos){
-		
+		self.entraPorPuerta()
 	}
 }
 class SubeDeNivel inherits Puerta{

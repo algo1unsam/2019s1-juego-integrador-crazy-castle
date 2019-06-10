@@ -47,6 +47,9 @@ class Malo {
 			conejo.restaPuntos()
 		}
 	}
+	method choque(persona,pos){
+		
+	}
 
 }
 

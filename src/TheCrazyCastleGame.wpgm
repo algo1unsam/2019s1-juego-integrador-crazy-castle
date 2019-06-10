@@ -135,7 +135,7 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
 		// conejo
 	game.addVisual(conejo)
 //	TECLADO
-	keyboard.up().onPressDo{ conejo.puerta() }
+	keyboard.up().onPressDo{ conejo.teclaUP() }
 //conejo movimiento
 
 	keyboard.left().onPressDo {

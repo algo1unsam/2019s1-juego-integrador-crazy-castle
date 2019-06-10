@@ -37,17 +37,10 @@ object conejo {
 	}
     
 
-	method puerta(){
-		var element=#{}
-		var puerta
-		element=position.allElements()	
-		if(self.sigueVivo() and not element.isEmpty()){
-		puerta=element.anyOne()
-		puerta.entraPorPuerta()
-		
-		}else{
-			game.say(self,"no veo ninguna puerta")
-		}
+	method teclaUP(){
+		var elemento=#{}
+		elemento.addAll(self.eliminoConejo(game.colliders(self)))
+		elemento.choque(self,position)
 	}
 	method estado() =false
 	method muerto() {
@@ -57,6 +50,6 @@ object conejo {
 		estado=true
 	}
 	method sigueVivo()=estado
-
+	method eliminoConejo(elemento){if(elemento==self){return elemento.remove(self)}else{return elemento}}
 }
 
