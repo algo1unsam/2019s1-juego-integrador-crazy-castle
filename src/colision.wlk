@@ -7,7 +7,7 @@ import piso.*
 import malo.*
 object colision{
 	var element=[]
-	
+
 	method muevo(_direccion,dir){
 		conejo.position(_direccion)
 		element=_direccion.allElements()

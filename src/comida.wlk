@@ -8,7 +8,7 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
-	method choque(persona,pos){}
+	method choco(dir){}
 
 }
 
@@ -41,6 +41,13 @@ class Caja {
 		 self.arrastra(pos)
 		 
 			
+		}
+		method choco(dir){
+			if(dir=="izq"){
+				position=position.left(1)
+			}else{
+				position=position.right(1)
+			}
 		}
 
 }
