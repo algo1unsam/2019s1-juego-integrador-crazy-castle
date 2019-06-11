@@ -6,7 +6,7 @@ import niveles.*
 import puertas.*
 import piso.*
 import colision.*
-
+import direccion.*
 program bugsBunny {
 
 	// configuracion
@@ -136,8 +136,8 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
 //	TECLADO
 	//keyboard.up().onPressDo{puerta1.chocaCon(conejo)}
 	//keyboard.down().onPressDo{conejo.bajaDeNivel(unapuerta)}
-	keyboard.left().onPressDo {conejo.movimientoIzquierda()}
-	keyboard.right().onPressDo {conejo.movimientoDerecha()}	
+	keyboard.left().onPressDo {izquierda.movimientoIzquierda()}
+	keyboard.right().onPressDo {derecha.movimientoDerecha()}	
 //COLISIONES
    game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
    game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
