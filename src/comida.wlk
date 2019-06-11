@@ -8,8 +8,7 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
-	method choque(persona,pos){}
-
+	
 }
 
 class Caja {
@@ -17,31 +16,14 @@ class Caja {
 	method image() = "caja1.png"
    
 	method chocaCon(alguien) {
-	 
-	 self.arrastra()
-  	
-		}
+	          if(alguien== conejo)
+	        	 self.teArrastra()
+  			}
 		
-		method arrastra()
-		{var elementos=#{}
-		elementos= game.colliders(self)
-		
-		elementos.remove(self)
-		
-		self.position(self.position().right(1))
-		}
-		//mati
-		method arrastra(pos){
-		
-		
-		self.position(pos)
-		}
-		method choque(persona,pos){
-		 conejo.position(self.position())
-		 self.arrastra(pos)
-		 
-			
-		}
+	method teArrastra(){
+		if(self.position()==conejo.position())
+		self.position().up(1)
+	}
 
 }
 

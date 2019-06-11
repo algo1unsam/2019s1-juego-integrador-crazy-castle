@@ -14,18 +14,20 @@ program bugsBunny {
 	game.height(15)
 	game.width(25)
 	game.ground("fondo1.png")
-//	VISUALES
+//	AGREGO A BUGS BUNNY
 	game.addVisual(conejo)
-//entrada
-	var puerta0 = new SubeDeNivel(position = game.at(13, 1))
-    puerta0.saleporPuerta(game.at(13, 5))
-	const puerta2 = new SubeDeNivel(position = game.at(10, 5))
-	 puerta2.saleporPuerta(game.at(10, 9))
-	const puerta4 = new SubeDeNivel(position = game.at(1, 5))
-	puerta4.saleporPuerta(game.at(1, 13))
-    var puerta6 = new SubeDeNivel(position = game.at(4, 1))
-	puerta6.saleporPuerta(game.at(4, 5))
 	
+//LOGICA PARA PUERTAS
+var puerta1 = new PuertaQueHaceSubir(position = game.at(13, 1))
+   puerta1.creoPuertaEn(game.at(13, 5))
+//r puerta2 = new PuertaQueHaceSubir(position = game.at(13, 1))    
+var puerta2 = new PuertaQueHaceSubir(position = game.at(4, 1))
+ 	puerta2.creoPuertaEn(game.at(4, 5))
+const puerta3 = new PuertaQueHaceSubir(position = game.at(10, 5))
+puerta3.creoPuertaEn(game.at(10, 9))
+const puerta4 = new PuertaQueHaceSubir(position = game.at(1, 5))
+puerta4.creoPuertaEn(game.at(1, 13))
+
 	const pisonivel0 = new Ladrillo()
 	const ladrillosnivel1 = new LadrillosnivelSiguientes()
 	
@@ -40,19 +42,19 @@ var caja1= new Caja(position=game.at(6,9))
 
 var malo = new Malo(imagen="malo1.png", position= game.at(15,1), cantidadpasos = 10,cantidadpasosDerecha=10)
 var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 5,cantidadpasosDerecha=5)
-//malo
+//PERSONAJES MALOS
 	game.addVisual(malo)
 	game.addVisual(malo1)
-		// comida
+//COMIDA
 	game.addVisualIn(zanahoria, game.at(9, 9))
 	game.addVisualIn(zanahoria1, game.at(1, 1))
 	game.addVisualIn(zanahoria2, game.at(2, 13))
 	game.addVisualIn(zanahoria3, game.at(10, 13))
 	game.addVisualIn(zanahoria4, game.at(0, 5))
-		// cajas
+//CAJAS
 	game.addVisual(caja)
 	game.addVisual(caja1)
-		// ladrillos
+//LADRILLOS
 	game.addVisualIn(pisonivel0, game.at(0, 0))
 	game.addVisualIn(pisonivel0, game.at(1, 0))
 	game.addVisualIn(pisonivel0, game.at(2, 0))
@@ -123,39 +125,23 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
 	game.addVisualIn(ladrillosnivel1, game.at(18, 4))
 	game.addVisualIn(ladrillosnivel1, game.at(19, 4))
 	
-		// puertas
+//PUERTAS
+	game.addVisual(puerta1)
 	game.addVisual(puerta2)
-	//game.addVisual(puerta3)
-	game.addVisual(puerta0)
+	game.addVisual(puerta3)
 	game.addVisual(puerta4)
-	//game.addVisual(puerta1)
-	//game.addVisual(puerta5)
-	game.addVisual(puerta6)
-	//game.addVisual(puerta7)
-		// conejo
-	game.addVisual(conejo)
-//	TECLADO
-	keyboard.up().onPressDo{ conejo.teclaUP() }
-//conejo movimiento
-
-	keyboard.left().onPressDo {
-conejo.izquierda()
-
-
-	}
 	
-	keyboard.right().onPressDo {
-		conejo.derecha()
-	}	
-   
-   //movimiento de los malos
 
- 
+//	TECLADO
+	//keyboard.up().onPressDo{puerta1.chocaCon(conejo)}
+	//keyboard.down().onPressDo{conejo.bajaDeNivel(unapuerta)}
+	keyboard.left().onPressDo {conejo.movimientoIzquierda()}
+	keyboard.right().onPressDo {conejo.movimientoDerecha()}	
 //COLISIONES
+   game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
    game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
-    game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
-
-	//game.whenCollideDo(conejo, { algo => algo.chocaCon(conejo) })
+   game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
+ 
 //	START
 	game.start()
 }

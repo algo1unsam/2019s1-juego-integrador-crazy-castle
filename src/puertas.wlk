@@ -4,33 +4,68 @@ class Puerta{
 	
 	var property position
 	method image()
-	method entraPorPuerta()
+	method salida()
 	method chocaCon(alguien){
-			
+		
 	}
-	method choque(persona,pos){
-		self.entraPorPuerta()
-	}
+	
 }
-class SubeDeNivel inherits Puerta{
-	var property puertaSalida=null
+class PuertaQueHaceSubir inherits Puerta{
+	var puertaSalida=null
 	override method position() = game.at(12,1)
 	override method image()="puerta subida.png"
-	method saleporPuerta(cordenada){
-		puertaSalida= new BajaDeNivel(position=cordenada,puertaEntrada=position)
-		game.addVisual(puertaSalida)
+	method creoPuertaEn(posicion)
+		{
+			var 
+	puertaSalida= new PuertaQueHaceBajar
+		           (position=cordenada,puertaEntrada=self) 
+		game.addVisual(self)
 	}
-	override method entraPorPuerta(){
-		conejo.position(puertaSalida.position())
+	override method salida(){
+		conejo.position(self.position())
 	}
 	
-	
+
 }
-class BajaDeNivel inherits Puerta{
+class PuertaQueHaceBajar inherits Puerta{
 	var property puertaEntrada=null
 	override method image()="puerta bajada.png"
-	override method entraPorPuerta(){
-		conejo.position(puertaEntrada)
+	override method salida(){
+		conejo.position(self.position())
 	}
 	
 }
+/*
+
+class PuertaSalida{
+	var property position 
+	
+	method chocaCon(algo){
+	
+	}
+	
+	method cambioPosicionAPuertaDeSalida(){
+		if(conejo.position()== self.position()){
+			conejo.move(self.position())
+		}
+		
+	}
+	
+}
+
+class PuertaEntrada
+  {
+	var property position 
+	
+	method chocaCon(algo){
+		
+	}
+	
+	method cambioPosicionAPuertaDeSalida(){
+		if(conejo.position()== self.position()){
+			conejo.move(self.position())
+		}
+		}
+		}
+	
+*/
