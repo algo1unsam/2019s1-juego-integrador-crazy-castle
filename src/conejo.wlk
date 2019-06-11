@@ -13,7 +13,7 @@ object conejo {
 	var puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
-	var property direccion
+
 	var elemento = #{}
 	
 
@@ -79,28 +79,11 @@ object conejo {
 
 	}
 
-	method movimientoDerecha() {
-self.move(self.position().right(1))
-direccion="derecha"
-}
-
-	method eliminoConejo(element) {
-			element.remove(self)
-			return element
-	}
-	method movimientoIzquierda() {
-
-		self.move(self.position().left(1))
-		direccion="izquierda"
-	}
-
-
-	method colision()=position.allElements()
-	method conquienChoco() {
+	method conquienChoco(direccion) {
 		
-		elemento.addAll(self.colision())
-		elemento.remove(self)
-		elemento.all({elem=>elem.chocarCon(self,direccion)})
+		elemento.addAll(game.colliders(self))
+	
+		elemento.forEach({elem=>elem.chocarCon(self,direccion)})
 	}
 	method activar(pos){}
 
