@@ -14,7 +14,7 @@ object conejo {
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
 
-	var elemento = #{}
+	var property elemento = #{}
 	
 
 	method image() {
@@ -34,12 +34,8 @@ object conejo {
 		}
 	}
 
-    method subeDeNivel(unapuerta){
-    	if(self.position()==unapuerta.position())
-    	self.move(unapuerta.position())
-    }
-    
-    method bajaDeNivel(unapuerta){
+   
+    method entraPor(unapuerta){
     		if(self.position()==unapuerta.position())
     	self.move(unapuerta.position())
     }
@@ -56,14 +52,6 @@ object conejo {
 		} else {
 			self.muerto()
 		}
-	}
-
-	method teclaUP() {
-		var objeto
-		elemento.addAll(self.colision())
-		self.eliminoConejo(elemento)
-		objeto=elemento.anyOne()
-		objeto.activar(position)
 	}
 	method muerto() {
 
@@ -85,7 +73,9 @@ object conejo {
 	
 		elemento.forEach({elem=>elem.chocarCon(self,direccion)})
 	}
-	method activar(pos){}
-
+	
+		method seMueveA(puerta) {
+			self.position(puerta.position())
+}
 }
 
