@@ -20,7 +20,6 @@ class LadrillosnivelSiguientes inherits Ladrillo{
 		
 	}
 	
-
 }
 
 object gravedad{
