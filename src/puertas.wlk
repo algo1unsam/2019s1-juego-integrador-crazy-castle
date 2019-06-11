@@ -4,19 +4,22 @@ import conejo.*
 class Puerta {
 
 	var property position
-
+	var property tecla=false
 	method image()
 
 	method salida()
 
 	method chocaCon(alguien) {
-	}
+		if(self.position()== alguien.position()){
+			conejo.seMueveA(position)
+		}
 
-	method choco(dir) {
-	}
+
 
 }
 
+
+}
 class PuertaQueHaceSubir inherits Puerta {
 
 	var puertaSalida = null

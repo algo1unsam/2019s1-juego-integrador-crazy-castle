@@ -134,7 +134,7 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
 	
 
 //	TECLADO
-	//keyboard.up().onPressDo{puerta1.chocaCon(conejo)}
+	keyboard.up().onPressDo{conejo.seMueveA() }
 	//keyboard.down().onPressDo{conejo.bajaDeNivel(unapuerta)}
 	keyboard.left().onPressDo {izquierda.movimientoIzquierda()}
 	keyboard.right().onPressDo {derecha.movimientoDerecha()}	
