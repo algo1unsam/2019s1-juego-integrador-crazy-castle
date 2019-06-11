@@ -39,13 +39,12 @@ class Malo {
 		cantidadpasosDerecha = 5
 	}
 
-method chocaCon(algo) {
-if (self.position() == algo.position()&& algo== conejo) {
-				conejo.teRestoPuntos()
-				self.position().right(1)
-				}
+	method chocaCon(algo) {
+		if (self.position() == algo.position() && algo == conejo) {
+			conejo.restaPuntos()
+			self.position().right(1)
 		}
 	}
 
-
+}
 

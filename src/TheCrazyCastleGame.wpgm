@@ -31,6 +31,7 @@ puerta4.creoPuertaEn(game.at(1, 13))
 	const pisonivel0 = new Ladrillo()
 	const ladrillosnivel1 = new LadrillosnivelSiguientes()
 	
+	
 const zanahoria= new Zanahoria()
 const zanahoria1= new Zanahoria() 
 const zanahoria2= new Zanahoria() 

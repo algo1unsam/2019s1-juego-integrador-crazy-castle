@@ -1,5 +1,10 @@
 import wollok.game.*
+import comida.*
+import malo.*
+import niveles.*
 import puertas.*
+import piso.*
+import colision.*
 
 object conejo {
 
@@ -8,6 +13,9 @@ object conejo {
 	var puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
+	var property direccion
+	var elemento = #{}
+	
 
 	method image() {
 		return imagen
@@ -25,6 +33,7 @@ object conejo {
 			game.removeVisual(unazanahoria)
 		}
 	}
+
     method subeDeNivel(unapuerta){
     	if(self.position()==unapuerta.position())
     	self.move(unapuerta.position())
@@ -36,11 +45,12 @@ object conejo {
     }
 	method chocaCon(alguien) {
 		if (self.position() == alguien.position()) 
-		 self.teRestoPuntos()
+		 self.restaPuntos()
 		game.say(self, "¡ouch! ")
-	}
 
-	method teRestoPuntos() {
+}
+	method restaPuntos() {
+
 		if (puntos >= 100) {
 			puntos -= 100
 		} else {
@@ -48,7 +58,15 @@ object conejo {
 		}
 	}
 
+	method teclaUP() {
+		var objeto
+		elemento.addAll(self.colision())
+		self.eliminoConejo(elemento)
+		objeto=elemento.anyOne()
+		objeto.activar(position)
+	}
 	method muerto() {
+
 		game.removeVisual(self)
 		self.cambioDeImagen()
 		sigueVivo = false
@@ -58,15 +76,33 @@ object conejo {
 		imagen = "conejo.png"
 		game.addVisual(self)
 		game.say(self, " Perdiste ")
+
 	}
 
 	method movimientoDerecha() {
-		self.move(self.position().right(1))
+self.move(self.position().right(1))
+direccion="derecha"
+}
+
+	method eliminoConejo(element) {
+			element.remove(self)
+			return element
+	}
+	method movimientoIzquierda() {
+
+		self.move(self.position().left(1))
+		direccion="izquierda"
 	}
 
-	method movimientoIzquierda() {
-		self.move(self.position().left(1))
+
+	method colision()=position.allElements()
+	method conquienChoco() {
+		
+		elemento.addAll(self.colision())
+		elemento.remove(self)
+		elemento.all({elem=>elem.chocarCon(self,direccion)})
 	}
+	method activar(pos){}
 
 }
 
