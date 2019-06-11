@@ -1,5 +1,5 @@
 import wollok.game.*
-
+import conejo.*
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
 class Ladrillo{
@@ -23,3 +23,11 @@ class LadrillosnivelSiguientes inherits Ladrillo{
 
 }
 
+object gravedad{
+	method terrestre(){
+		var position=conejo.position().down(1)
+		if(position.allElements()==null){
+			conejo.position().down(1)
+		}
+	}
+}
