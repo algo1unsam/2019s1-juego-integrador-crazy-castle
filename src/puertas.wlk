@@ -16,7 +16,7 @@ class PuertaQueHaceSubir inherits Puerta{
 	override method image()="puerta subida.png"
 	method creoPuertaEn(posicion)
 		{
-			var 
+			 
 	puertaSalida= new PuertaQueHaceBajar
 		           (position=cordenada,puertaEntrada=self) 
 		game.addVisual(self)
@@ -35,37 +35,3 @@ class PuertaQueHaceBajar inherits Puerta{
 	}
 	
 }
-/*
-
-class PuertaSalida{
-	var property position 
-	
-	method chocaCon(algo){
-	
-	}
-	
-	method cambioPosicionAPuertaDeSalida(){
-		if(conejo.position()== self.position()){
-			conejo.move(self.position())
-		}
-		
-	}
-	
-}
-
-class PuertaEntrada
-  {
-	var property position 
-	
-	method chocaCon(algo){
-		
-	}
-	
-	method cambioPosicionAPuertaDeSalida(){
-		if(conejo.position()== self.position()){
-			conejo.move(self.position())
-		}
-		}
-		}
-	
-*/
