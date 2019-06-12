@@ -4,22 +4,18 @@ import conejo.*
 class Puerta {
 
 	var property position
-	var property tecla=false
+	var property tecla = false
+
 	method image()
 
 	method salida()
 
 	method chocaCon(alguien) {
-		if(self.position()== alguien.position()){
-			conejo.seMueveA(position)
-		}
-
-
+		keyboard.up().onPressDo({self.salida()})
+	}
 
 }
 
-
-}
 class PuertaQueHaceSubir inherits Puerta {
 
 	var puertaSalida = null
@@ -30,11 +26,11 @@ class PuertaQueHaceSubir inherits Puerta {
 
 	method creoPuertaEn(posicion) {
 		puertaSalida = new PuertaQueHaceBajar(position = posicion, puertaEntrada = self)
-		game.addVisual(self)
+		game.addVisual(puertaSalida)
 	}
 
 	override method salida() {
-		conejo.position(self.position())
+		conejo.position(puertaSalida.position())
 	}
 
 }
@@ -46,7 +42,7 @@ class PuertaQueHaceBajar inherits Puerta {
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
-		conejo.position(self.position())
+		conejo.position(puertaEntrada.position())
 	}
 
 }

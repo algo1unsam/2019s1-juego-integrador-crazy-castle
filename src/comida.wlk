@@ -17,8 +17,8 @@ class Caja {
 
 	method image() = "caja1.png"
 
-	method chocaCon(alguien, direccion) {
-		if (direccion == "izquierda") {
+	method chocaCon(alguien) {
+		if (alguien.position() == "izquierda") {
 			position = position.left(1)
 		} else {
 			position = position.right(1)

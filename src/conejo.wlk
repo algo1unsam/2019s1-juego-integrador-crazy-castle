@@ -5,6 +5,7 @@ import niveles.*
 import puertas.*
 import piso.*
 import colision.*
+import direccion.*
 
 object conejo {
 
@@ -39,7 +40,7 @@ object conejo {
     		if(self.position()==unapuerta.position())
     	self.move(unapuerta.position())
     }
-	method chocaCon(alguien) {
+	method chocaCon(alguien,posicion) {
 		if (self.position() == alguien.position()) 
 		 self.restaPuntos()
 		game.say(self, "¡ouch! ")
@@ -67,15 +68,11 @@ object conejo {
 
 	}
 
-	method conquienChoco(direccion) {
+	method conquienChoco(posicion) {
 		
-		elemento.addAll(game.colliders(self))
-	
-		elemento.forEach({elem=>elem.chocarCon(self,direccion)})
+		 game.colliders(self).forEach({elem=>elem.chocaCon(self,posicion)})
 	}
 	
-		method seMueveA(puerta) {
-			self.position(puerta.position())
-}
+
 }
 
