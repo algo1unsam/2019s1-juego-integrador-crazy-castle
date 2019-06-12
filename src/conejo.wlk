@@ -4,7 +4,7 @@ import malo.*
 import niveles.*
 import puertas.*
 import piso.*
-import colision.*
+
 import direccion.*
 
 object conejo {
