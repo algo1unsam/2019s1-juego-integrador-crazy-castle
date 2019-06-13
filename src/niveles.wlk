@@ -6,11 +6,13 @@ import direccion.*
 class Ladrillo{
 	
 	var property position = game.at(0,0)
+	method nombre()=self
 	method image()="ladrillos.png"
 	method chocaCon(alguien){
 		
 	}
 	method choque(persona,pos){}
+	method muerto() {}
 }
 //deveriamos separar el piso de las paredes
 class LadrillosnivelSiguientes inherits Ladrillo{
@@ -41,11 +43,14 @@ class LadrillosParedDerecha inherits Ladrillo{
 	
 }
 object gravedad{
-	
+	method nombre()=self
 	method terrestre(param){
 		
-		if(game.getObjectsIn(param.position().down(1)).isEmpty()){
+		if(self.comprueboPosicion(param).isEmpty()){
 			param.position(param.position().down(1))
 		}
 	}
+	method muerto() {}
+	method comprueboPosicion(param)=game.getObjectsIn(param.position().down(1))
+	
 }

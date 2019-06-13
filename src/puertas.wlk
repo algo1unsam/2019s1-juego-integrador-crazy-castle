@@ -1,16 +1,14 @@
 import wollok.game.*
 import conejo.*
-
+import direccion.*
 class Puerta {
-
-	var property tecla = false
 
 	method image()
 
 	method salida()
-
+method muerto() {}
 	method chocaCon(alguien) {
-		keyboard.up().onPressDo({ tecla=true self.salida()})
+		self.salida()
 	}
 
 }
@@ -28,9 +26,9 @@ class PuertaQueHaceSubir inherits Puerta {
 	}
 
 	override method salida() {
-		if(tecla){
+		if(tecla.estaTocada()){
 		conejo.position(puertaSalida.position())
-		tecla=false
+		tecla.estaTocada(false)
 		
 		}
 	}
@@ -45,9 +43,9 @@ class PuertaQueHaceBajar inherits Puerta {
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
-		if(tecla){
+		if(tecla.estaTocada()){
 		conejo.position(puertaEntrada.position())
-		tecla=false
+		tecla.estaTocada(false)
 	}
 	
 	}

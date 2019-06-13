@@ -4,12 +4,13 @@ import conejo.*
 class Malo {
 
 	var imagen
-	var cantidadpasos
-	var cantidadpasosDerecha
+	var aux
+	var property cantidadpasos=null
+	var property cantidadpasosDerecha=null
 	var property position = game.at(6, 13)
 
 	method image() = imagen
-
+method nombre()=self
 	method movimiento() {
 		self.seMueveAlaIzquierda()
 		if (cantidadpasos == 0) {
@@ -24,6 +25,7 @@ class Malo {
 		if (cantidadpasosDerecha > 0) {
 			cantidadpasosDerecha -= 1
 			self.position(self.position().right(1))
+			
 		}
 	}
 
@@ -35,19 +37,21 @@ class Malo {
 	}
 
 	method resetpasos() {
-		cantidadpasos = 5
-		cantidadpasosDerecha = 5
+		cantidadpasos = aux
+		cantidadpasosDerecha = aux
 	}
 
 	method chocaCon(algo) {
-		if (self.position() == algo.position() && algo == conejo) {
+		if (algo == conejo and conejo.count() == 1) {
 			conejo.restaPuntos()
-			self.position().right(1)
+			conejo.count(0)
+			game.say(conejo, "¡ouch! ")
 		}
 	}
-	method muerto(){
+
+	method muerto() {
 		game.removeVisual(self)
 	}
-
+	
 }
 
