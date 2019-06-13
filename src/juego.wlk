@@ -106,8 +106,12 @@ posicionNiveles.forEach{nivel =>self.dibujar(new LadrillosnivelSiguientes(positi
  
  var personajesConGravedad=[conejo,malo1,malo,caja,caja1]
  //gravedad
+<<<<<<< HEAD
    game.onTick(500,"gravedad",{gravedad.terrestre(personajesConGravedad)})
    
+=======
+   game.onTick(500,"gravedad",{gravedad.terrestre(conejo) gravedad.terrestre(caja) gravedad.terrestre(caja1)} )
+>>>>>>> branch 'master' of https://github.com/algo1unsam/2019s1-juego-integrador-crazy-castle.git
  
  
  //	TECLADO
