@@ -45,11 +45,11 @@ method nombre()=self
 		if (algo == conejo and conejo.count() == 1) {
 			conejo.restaPuntos()
 			conejo.count(0)
-			game.say(conejo, "¡ouch! ")
+			game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
 		}
 	}
 
-	method muerto() {
+	method teMueres() {
 		game.removeVisual(self)
 	}
 	

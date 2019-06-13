@@ -9,7 +9,7 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
-method muerto() {}
+method teMueres() {}
 }
 
 class Caja {
@@ -37,7 +37,7 @@ class Caja {
 			elementos.forEach{persona=>persona.muerto()}
 		}
 	}
-	method muerto() {}
+	method teMueres() {}
 
 }
 

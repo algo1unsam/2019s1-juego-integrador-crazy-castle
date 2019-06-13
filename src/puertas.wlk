@@ -1,12 +1,15 @@
 import wollok.game.*
 import conejo.*
 import direccion.*
+
 class Puerta {
 
 	method image()
 
 	method salida()
-method muerto() {}
+	
+method teMueres() {}
+
 	method chocaCon(alguien) {
 		self.salida()
 	}
@@ -28,8 +31,7 @@ class PuertaQueHaceSubir inherits Puerta {
 	override method salida() {
 		if(tecla.estaTocada()){
 		conejo.position(puertaSalida.position())
-		tecla.estaTocada(false)
-		
+		tecla.reseteate()
 		}
 	}
 

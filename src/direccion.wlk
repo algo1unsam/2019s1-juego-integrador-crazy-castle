@@ -12,7 +12,7 @@ object derecha {
 		conejo.count(1)
 	}
 
-	method muerto() {
+	method teMueres() {
 	}
 
 }
@@ -28,7 +28,7 @@ object izquierda {
 		conejo.count(1)
 	}
 
-	method muerto() {
+	method teMueres() {
 	}
 
 }
@@ -40,7 +40,11 @@ object tecla {
 	method chocaCon(algo) {
 	}
 
-	method muerto() {
+	method teMueres() {
+	}
+	method reseteate()
+	{
+		estaTocada=true
 	}
 
 }

@@ -11,7 +11,7 @@ object conejo {
 
 	var property sigueVivo = true
 	var property zanahorias = 10
-	var puntos = 10000
+	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
 	var property direccion=null	
@@ -46,13 +46,13 @@ object conejo {
 			puntos -= 100
 			
 		} else {
-			self.muerto()
+			self.teMueres()
 		
 		
 		}
 		
 	}
-	method muerto() {
+	method teMueres() {
 
 		game.removeVisual(self)
 		self.cambioDeImagen()

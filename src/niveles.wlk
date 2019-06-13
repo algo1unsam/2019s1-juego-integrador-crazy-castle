@@ -14,7 +14,7 @@ class Ladrillo {
 	method chocaCon(alguien) {
 	}
 	method choque(persona,pos){}
-	method muerto() {}
+	method teMueres() {}
 
 }
 
@@ -48,14 +48,13 @@ class LadrillosParedDerecha inherits Ladrillo {
 }}
 object gravedad{
 	method nombre()=self
-	method terrestre(param){
-		
-		if(self.comprueboPosicion(param).isEmpty()){
-			param.position(param.position().down(1))
-}
+	method terrestre(personajes){
+		personajes.forEach{algo=>if(self.comprueboPosicion(algo).isEmpty()){algo.position(algo.position().down(1))}
+			
+		}
 	}
-	method muerto() {}
-	method comprueboPosicion(param)=game.getObjectsIn(param.position().down(1))
+	method teMueres() {}
+	method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
 	
 }
 
