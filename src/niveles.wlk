@@ -20,13 +20,31 @@ class LadrillosnivelSiguientes inherits Ladrillo{
 		
 	}
 	
+	}
+class LadrillosParedIzquierda inherits Ladrillo{
+   
+	override method image()="ladrillonivel.png"
+	override method chocaCon(alguien){
+		alguien.position(alguien.position().right(1))
+		
+	}
+	
 }
-
+class LadrillosParedDerecha inherits Ladrillo{
+   
+	override method image()="ladrillonivel.png"
+	override method chocaCon(alguien){
+		alguien.position(alguien.position().left(1))
+		
+	}
+	
+}
 object gravedad{
-	method terrestre(){
-		var position=conejo.position().down(1)
-		if(position.allElements()==null){
-			conejo.position().down(1)
+	
+	method terrestre(param){
+		
+		if(game.getObjectsIn(conejo.position().down(1)).isEmpty()){
+			conejo.position(conejo.position().down(1))
 		}
 	}
 }

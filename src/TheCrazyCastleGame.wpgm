@@ -30,7 +30,8 @@ puerta4.creoPuertaEn(game.at(1, 13))
 	const pisonivel0 = new Ladrillo()
 	const ladrillosnivel1 = new LadrillosnivelSiguientes()
 	
-	
+	const paredIzquierda = new LadrillosParedIzquierda()
+	const paredDerecha = new LadrillosParedIzquierda()
 const zanahoria= new Zanahoria()
 const zanahoria1= new Zanahoria() 
 const zanahoria2= new Zanahoria() 
@@ -125,6 +126,38 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
 	game.addVisualIn(ladrillosnivel1, game.at(18, 4))
 	game.addVisualIn(ladrillosnivel1, game.at(19, 4))
 	
+	game.addVisualIn(paredDerecha, game.at(0, 1))
+	game.addVisualIn(paredDerecha, game.at(0, 2))
+	game.addVisualIn(paredDerecha, game.at(0, 3))
+	game.addVisualIn(paredDerecha, game.at(0, 4))
+	game.addVisualIn(paredDerecha, game.at(0, 5))
+	game.addVisualIn(paredDerecha, game.at(0, 6))
+	game.addVisualIn(paredDerecha, game.at(0, 7))
+	game.addVisualIn(paredDerecha, game.at(0, 8))
+	game.addVisualIn(paredDerecha, game.at(0, 9))
+	game.addVisualIn(paredDerecha, game.at(0, 10))
+	game.addVisualIn(paredDerecha, game.at(0, 11))
+	game.addVisualIn(paredDerecha, game.at(0, 12))
+	game.addVisualIn(paredDerecha, game.at(0, 13))
+	game.addVisualIn(paredDerecha, game.at(0, 14))
+	game.addVisualIn(paredDerecha, game.at(0, 15))
+	
+	
+	game.addVisualIn(paredIzquierda, game.at(24, 1))
+	game.addVisualIn(paredIzquierda, game.at(24, 2))
+	game.addVisualIn(paredIzquierda, game.at(24, 3))
+	game.addVisualIn(paredIzquierda, game.at(24, 4))
+	game.addVisualIn(paredIzquierda, game.at(24, 5))
+	game.addVisualIn(paredIzquierda, game.at(24, 6))
+	game.addVisualIn(paredIzquierda, game.at(24, 7))
+	game.addVisualIn(paredIzquierda, game.at(24, 8))
+	game.addVisualIn(paredIzquierda, game.at(24, 9))
+	game.addVisualIn(paredIzquierda, game.at(24, 10))
+	game.addVisualIn(paredIzquierda, game.at(24, 11))
+	game.addVisualIn(paredIzquierda, game.at(24, 12))
+	game.addVisualIn(paredIzquierda, game.at(24, 13))
+	game.addVisualIn(paredIzquierda, game.at(24, 14))
+	game.addVisualIn(paredIzquierda, game.at(24, 15))
 //PUERTAS
 	game.addVisual(puerta1)
 	game.addVisual(puerta2)
@@ -144,7 +177,7 @@ var malo1 = new Malo(imagen="malo2.png",position=game.at(6,13), cantidadpasos = 
  
  
  //gravedad
-   game.onTick(500,"gravedad",{gravedad.terrestre()} )
+   game.onTick(500,"gravedad",{gravedad.terrestre(ladrillosnivel1)} )
  
 //	START
 	game.start()

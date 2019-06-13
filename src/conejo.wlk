@@ -14,9 +14,7 @@ object conejo {
 	var puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
-
-	var property elemento = #{}
-	
+	var property direccion=null	
 
 	method image() {
 		return imagen

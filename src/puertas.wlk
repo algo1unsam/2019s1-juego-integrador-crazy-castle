@@ -3,7 +3,6 @@ import conejo.*
 
 class Puerta {
 
-	var property position
 	var property tecla = false
 
 	method image()
@@ -11,7 +10,7 @@ class Puerta {
 	method salida()
 
 	method chocaCon(alguien) {
-		keyboard.up().onPressDo({self.salida()})
+		keyboard.up().onPressDo({ self.salida()})
 	}
 
 }
@@ -19,8 +18,7 @@ class Puerta {
 class PuertaQueHaceSubir inherits Puerta {
 
 	var puertaSalida = null
-
-	override method position() = game.at(12, 1)
+	var property position
 
 	override method image() = "puerta subida.png"
 
@@ -38,6 +36,7 @@ class PuertaQueHaceSubir inherits Puerta {
 class PuertaQueHaceBajar inherits Puerta {
 
 	var property puertaEntrada = null
+	var property position
 
 	override method image() = "puerta bajada.png"
 

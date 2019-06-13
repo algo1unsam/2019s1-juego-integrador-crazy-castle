@@ -1,6 +1,6 @@
 import wollok.game.*
 import conejo.*
-
+import direccion.*
 class Zanahoria {
 
 	method image() = "zanahoria.png"
@@ -12,13 +12,10 @@ class Zanahoria {
 }
 
 class Caja {
-
 	var property position
-
 	method image() = "caja1.png"
-
 	method chocaCon(alguien) {
-		if (alguien.position() == "izquierda") {
+		if (conejo.direccion() == izquierda) {
 			position = position.left(1)
 		} else {
 			position = position.right(1)
