@@ -1,16 +1,9 @@
 import wollok.game.*
-import comida.*
-import conejo.*
-import malo.*
-import niveles.*
-import puertas.*
-import piso.*
-import direccion.*
+import juego.*
 program bugsBunny {
-	//CONFIGURACION
+	
 	
   juego.cargar()
 	
-
-	game.start()
+ game.start()
 }
