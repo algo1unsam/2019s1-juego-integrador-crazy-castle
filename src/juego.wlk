@@ -106,7 +106,7 @@ posicionNiveles.forEach{nivel =>self.dibujar(new LadrillosnivelSiguientes(positi
  
  
  //gravedad
-   game.onTick(500,"gravedad",{gravedad.terrestre(ladrillosnivel1)} )
+   game.onTick(500,"gravedad",{gravedad.terrestre(conejo) gravedad.terrestre(caja) gravedad.terrestre(caja1)} )
  
  
  //	TECLADO

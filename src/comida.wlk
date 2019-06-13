@@ -38,6 +38,10 @@ class Caja {
 		}
 	}
 	method muerto() {}
-
+	method repeleAlMalo(){
+		if(not game.colliders(self).isEmpty()){
+			(game.colliders(self)).forEach{p=>p.retrocede()}
+		}
+	}
 }
 
