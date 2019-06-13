@@ -1,5 +1,6 @@
 import wollok.game.*
 import conejo.*
+import direccion.*
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
 class Ladrillo{
@@ -22,11 +23,10 @@ class LadrillosnivelSiguientes inherits Ladrillo{
 	
 	}
 class LadrillosParedIzquierda inherits Ladrillo{
-   
 	override method image()="ladrillonivel.png"
 	override method chocaCon(alguien){
-		alguien.position(alguien.position().right(1))
-		
+		derecha.movimientoDerecha()
+		//alguien.position(alguien.position().right(1))
 	}
 	
 }
@@ -34,7 +34,8 @@ class LadrillosParedDerecha inherits Ladrillo{
    
 	override method image()="ladrillonivel.png"
 	override method chocaCon(alguien){
-		alguien.position(alguien.position().left(1))
+		izquierda.movimientoIzquierda()
+		//alguien.position(alguien.position().left(1))
 		
 	}
 	
@@ -43,8 +44,8 @@ object gravedad{
 	
 	method terrestre(param){
 		
-		if(game.getObjectsIn(conejo.position().down(1)).isEmpty()){
-			conejo.position(conejo.position().down(1))
+		if(game.getObjectsIn(param.position().down(1)).isEmpty()){
+			param.position(param.position().down(1))
 		}
 	}
 }

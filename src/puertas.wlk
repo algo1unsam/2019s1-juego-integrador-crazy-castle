@@ -10,7 +10,7 @@ class Puerta {
 	method salida()
 
 	method chocaCon(alguien) {
-		keyboard.up().onPressDo({ self.salida()})
+		keyboard.up().onPressDo({ tecla=true self.salida()})
 	}
 
 }
@@ -28,7 +28,11 @@ class PuertaQueHaceSubir inherits Puerta {
 	}
 
 	override method salida() {
+		if(tecla){
 		conejo.position(puertaSalida.position())
+		tecla=false
+		
+		}
 	}
 
 }
@@ -41,7 +45,11 @@ class PuertaQueHaceBajar inherits Puerta {
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
+		if(tecla){
 		conejo.position(puertaEntrada.position())
+		tecla=false
+	}
+	
 	}
 
 }

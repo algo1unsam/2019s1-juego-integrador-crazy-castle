@@ -25,6 +25,13 @@ class Caja {
 	method teArrastra() {
 		if (self.position() == conejo.position()) self.position().up(1)
 	}
+	method aplasta(){
+		var elementos=#{}
+		elementos.addAll(game.getObjectsIn(self.position().down(1)))
+		if(not elementos.isEmpty()){
+			elementos.forEach{persona=>persona.muerto()}
+		}
+	}
 
 }
 
