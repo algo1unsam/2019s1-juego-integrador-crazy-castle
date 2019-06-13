@@ -45,6 +45,9 @@ class Malo {
 			self.position().right(1)
 		}
 	}
+	method muerto(){
+		game.removeVisual(self)
+	}
 
 }
 
