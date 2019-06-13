@@ -10,7 +10,7 @@ import direccion.*
 object conejo {
 
 	var property sigueVivo = true
-	var property zanahorias = 8
+	var property zanahorias = 10
 	var puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
