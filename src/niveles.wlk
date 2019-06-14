@@ -108,9 +108,6 @@ class Piso {
 	}
 
 }
-
-
-
 object puertaMagica inherits PuertaQueHaceSubir{
 	
 	var cantidad=null
