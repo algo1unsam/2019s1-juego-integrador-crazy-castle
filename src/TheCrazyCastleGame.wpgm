@@ -2,6 +2,7 @@ import wollok.game.*
 import juego.*
 program bugsBunny {
 
+
 juego.cargar()
 game.start()
 }

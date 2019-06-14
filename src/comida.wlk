@@ -29,10 +29,10 @@ class Caja {
 	
 	method chocaCon(conejo) {
 		if (position.right(1)== conejo.position()) {
-			position = position.left(1)
+			self.position().left(1)
 		}
 		if (position.left(1) == conejo.position()) {
-			position = position.right(1)
+			self.position().right(1)
 		}
 	}
 

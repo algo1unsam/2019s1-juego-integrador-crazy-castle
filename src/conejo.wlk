@@ -5,7 +5,7 @@ import niveles.*
 import direccion.*
 
 object conejo {
-
+ 
 	var property sigueVivo = true
 	var property zanahorias = 10
 	var property puntos = 10000
