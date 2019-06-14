@@ -135,3 +135,4 @@ object gravedad{
 	method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
 	
 }
+

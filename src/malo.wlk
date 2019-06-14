@@ -18,7 +18,7 @@ method nombre()=self
 		if (cantidadpasosIzquierda == 0) {
 			self.seMueveAlaDerecha()	}
 		if (cantidadpasosIzquierda == 0 && cantidadpasosDerecha == 0) {
-			self.resetpasos()
+			self.resetpasos( )
 		}
 	}
 
