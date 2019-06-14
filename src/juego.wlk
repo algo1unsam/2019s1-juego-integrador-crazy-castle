@@ -32,7 +32,7 @@ object juego {
 		const zanahoria2 = new Zanahoria()
 		const zanahoria3 = new Zanahoria()
 		const zanahoria4 = new Zanahoria()
-		puertaMagica.zanahoriasFaltantes([zanahoria,zanahoria1,zanahoria2,zanahoria3,zanahoria4])
+		//puertaMagica.aparece([zanahoria,zanahoria1,zanahoria2,zanahoria3,zanahoria4])
 		var caja = new Caja(position = game.at(10, 5))
 
 		var caja1 = new Caja(position = game.at(6, 9))
@@ -106,9 +106,7 @@ object juego {
 		game.addVisual(dibujo)
 		
 	}
-	method juego2() {
-		game.stop() 
-	}
+	
 
 }
 

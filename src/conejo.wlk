@@ -7,7 +7,7 @@ import direccion.*
 object conejo {
  
 	var property sigueVivo = true
-	var property zanahorias = 10
+	
 	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
@@ -29,6 +29,7 @@ object conejo {
 	method comer(unazanahoria) {
 		if (self.sigueVivo()) {
 			puntos += 100
+			
 			game.removeVisual(unazanahoria)
 
 	}

@@ -4,41 +4,40 @@ import direccion.*
 
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
-class Ladrillo {
+class ParedDeLadrillos {
 
 	var property position = game.at(0, 0)
 
 	method image() = "ladrillonivel.png"
 
-	method chocaCon(alguien) {
-	}
+	method chocaCon(alguien) {}
 
-	method teMueres() {
-	}
+	method teMueres() {	}
 
 }
-
-class LadrillosnivelSiguientes inherits Ladrillo {
+class LadrillosParedDerecha inherits ParedDeLadrillos {
 
 	override method image() = "ladrillonivel.png"
 
 	override method chocaCon(alguien) {
-
-				
-
-		}
+		alguien.position(alguien.position().left(1))
+	}
 
 }
 
-class LadrillosParedIzquierda inherits Ladrillo {
+class LadrillosParedIzquierda inherits ParedDeLadrillos {
 
 	override method image() = "ladrillonivel.png"
 
 
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().right(1))
+	override method chocaCon(alguien) {		alguien.position(alguien.position().right(1))	}
 
-	}
+}
+class LadrillosnivelSiguientes inherits ParedDeLadrillos {
+
+	override method image() = "ladrillonivel.png"
+
+	override method chocaCon(alguien) {		}
 
 }
 
@@ -109,39 +108,9 @@ class Piso {
 
 }
 
-class LadrillosParedDerecha inherits Ladrillo {
-
-	override method image() = "ladrillonivel.png"
-
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().left(1))
-	}
-
-}
-
-
-/*object gravedad{
-	method nombre()=self
-	method terrestre(personajes){
-		
-		personajes.forEach{algo=>if(self.comprueboPosicion(algo).isEmpty()){algo.position(algo.position().down(1))}
-			
-		
-	}}*/
-	//method teMueres() {}
-	//method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
+object puertaMagica {
 	
-//}
+	}
+	
 
-object puertaMagica inherits PuertaQueHaceSubir{
-	var property zanahoriasFaltantes=[]
-	var cantidad=0
-	method zanahoriasFaltantes(param){
-		zanahoriasFaltantes.addAll(param)
-		cantidad=zanahoriasFaltantes.size()
-	}
-	method restarZanahoria(zanahoria){
-		cantidad--
-		zanahoriasFaltantes.remove(zanahoria)
-	}
-}
+
