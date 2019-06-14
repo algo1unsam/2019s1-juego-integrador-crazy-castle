@@ -32,11 +32,4 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.uqbar.project.wollok.wollokNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>assets/conejoPierde.png</name>
-			<type>1</type>
-			<location>C:/Users/FD/Desktop/conejoPierde.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>
