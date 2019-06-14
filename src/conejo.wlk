@@ -2,9 +2,6 @@ import wollok.game.*
 import comida.*
 import malo.*
 import niveles.*
-import puertas.*
-import piso.*
-
 import direccion.*
 
 object conejo {
@@ -14,8 +11,10 @@ object conejo {
 	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
-	var property direccion=null	
 	var property count=1
+	
+	method chocaCon(algo){
+}
 	method image() {
 		return imagen
 	}
@@ -57,14 +56,16 @@ object conejo {
 		game.removeVisual(self)
 		self.cambioDeImagen()
 		sigueVivo = false
+		game.stop()
 	}
 
 	method cambioDeImagen() {
-		imagen = "conejo.png"
+		imagen = "conejoPierde.png"
 		game.addVisual(self)
 		game.say(self, " Perdiste ")
 
 	}
+	
 	
 	
 }
