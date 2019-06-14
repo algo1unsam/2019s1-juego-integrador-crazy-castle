@@ -52,7 +52,7 @@ object gravedad {
 			cosas.position().down(1)
 		}
 	}
-
+	
 }
 
 object tecla {

@@ -137,7 +137,7 @@ object gravedad{
 }
 
 object puertaMagica inherits PuertaQueHaceSubir{
-	var zanahoriasFaltantes
+	var property zanahoriasFaltantes=[]
 	var cantidad=0
 	method zanahoriasFaltantes(param){
 		zanahoriasFaltantes.addAll(param)
