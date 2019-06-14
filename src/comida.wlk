@@ -11,6 +11,7 @@ class Zanahoria {
 
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
+		puertaMagica.restarZanahoria(self)
 	}
 
 	method teMueres() {	}

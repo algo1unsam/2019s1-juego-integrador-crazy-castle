@@ -30,7 +30,7 @@ object conejo {
 		if (self.sigueVivo()) {
 			puntos += 100
 			game.removeVisual(unazanahoria)
-			puertaMagica.removerZanahorias(unazanahoria)
+
 		}
 	}
 

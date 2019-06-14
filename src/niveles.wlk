@@ -135,3 +135,15 @@ object gravedad{
 	method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
 	
 }
+object puertaMagica inherits PuertaQueHaceSubir{
+	var zanahoriasFaltantes
+	var cantidad=0
+	method zanahoriasFaltantes(param){
+		zanahoriasFaltantes.addAll(param)
+		cantidad=zanahoriasFaltantes.size()
+	}
+	method restarZanahoria(zanahoria){
+		cantidad--
+		zanahoriasFaltantes.remove(zanahoria)
+	}
+}
