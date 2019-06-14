@@ -1,7 +1,7 @@
 import wollok.game.*
 import conejo.*
 import direccion.*
-
+import juego.*
 class Puerta {
 
 	method image()
@@ -17,11 +17,11 @@ method teMueres() {}
 }
 
 class PuertaQueHaceSubir inherits Puerta {
-
+var property position
 	var puertaSalida = null
-	var property position
+	
 
-	override method image() = "puerta subida.png"
+	 override method image() = "puerta subida.png"
 
 	method creoPuertaEn(posicion) {
 		puertaSalida = new PuertaQueHaceBajar(position = posicion, puertaEntrada = self)
@@ -38,10 +38,8 @@ class PuertaQueHaceSubir inherits Puerta {
 }
 
 class PuertaQueHaceBajar inherits Puerta {
-
+var property position
 	var property puertaEntrada = null
-	var property position
-
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
@@ -53,4 +51,30 @@ class PuertaQueHaceBajar inherits Puerta {
 	}
 
 }
+object puertaMagica inherits PuertaQueHaceSubir {
+	
+	var property zanahoriasFaltantes=[]
+	var cantidad=0
+	method pongoPuerta(){
+	position=game.at(23,1)
+	}
+	method zanahoriasFaltantes(param){
+		zanahoriasFaltantes.addAll(param)
+		cantidad=zanahoriasFaltantes.size()
+	}
+	method removerZanahorias(param) {
+		zanahoriasFaltantes.remove(param) 
+		cantidad--
+		if(cantidad==0){
+			self.apareceLaPuerta()
+		}
+	}
+	
+	method apareceLaPuerta() {
+		position=game.at(23,1)
+		juego.juego2()
+		juego.dibujar(self)
+	
+	}
 
+}

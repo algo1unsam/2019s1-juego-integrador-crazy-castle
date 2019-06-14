@@ -23,7 +23,7 @@ class LadrillosnivelSiguientes inherits Ladrillo {
 	override method image() = "ladrillonivel.png"
 
 	override method chocaCon(alguien) {
-		alguien.position(alguien.position().up(1))
+		
 	}
 
 }
@@ -32,8 +32,8 @@ class LadrillosParedIzquierda inherits Ladrillo {
 
 	override method image() = "ladrillonivel.png"
 
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().right(1))
+override method chocaCon(alguien) {
+alguien.position(alguien.position().right(1))
 
 	}
 }
@@ -45,7 +45,8 @@ class LadrillosParedDerecha inherits Ladrillo {
 	override method chocaCon(alguien) {
 		alguien.position(alguien.position().left(1))
 
-}}
+}
+}
 object gravedad{
 	method nombre()=self
 	method terrestre(personajes){
