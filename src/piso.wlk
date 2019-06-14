@@ -6,11 +6,4 @@ import direccion.*
 import niveles.*
 import conejo.*
 
-class Piso {
-	var property position
-	method imagen()="ladrillos.png"
-	method choque(alguien){
-		
-	}
-}
 
