@@ -28,7 +28,7 @@ object izquierda {
 	}
 
 }
-
+/* 
 object gravedad {
 
 	method nombre() = self
@@ -54,7 +54,7 @@ object gravedad {
 	}
 	
 }
-
+*/
 object tecla {
 
 	var property estaTocada = false

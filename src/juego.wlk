@@ -94,7 +94,7 @@ object juego {
 		var personajesConGravedad = [ conejo, malo1, malo, caja, caja1 ]
 		 
 			// gravedad
-		game.onTick(500, "gravedad", { gravedad.bajar(personajesConGravedad)	})
+		game.onTick(500, "gravedad", { gravedad.terrestre(personajesConGravedad)	})
 		game.onTick(50, "tecla", { tecla.estaTocada(false)	})
 			// TECLADO
 		keyboard.left().onPressDo{ izquierda.movimientoIzquierda()}
