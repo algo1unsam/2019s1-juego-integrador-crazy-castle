@@ -120,19 +120,6 @@ class LadrillosParedDerecha inherits Ladrillo {
 }
 
 
-/*object gravedad{
-	method nombre()=self
-	method terrestre(personajes){
-		
-		personajes.forEach{algo=>if(self.comprueboPosicion(algo).isEmpty()){algo.position(algo.position().down(1))}
-			
-		
-	}}*/
-	//method teMueres() {}
-	//method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
-	
-//}
-
 object puertaMagica inherits PuertaQueHaceSubir{
 	var property zanahoriasFaltantes=[]
 	var cantidad=0
