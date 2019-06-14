@@ -23,12 +23,14 @@ class LadrillosnivelSiguientes inherits Ladrillo {
 	override method image() = "ladrillonivel.png"
 
 	override method chocaCon(alguien) {
+
 		if (self.position().left(1) > conejo.position()) {
 			conejo.position(conejo.position().left(1))
 		} 
 		else
-		conejo.position(conejo.position().right(1))
-	}
+		   conejo.position(conejo.position().right(1))
+
+		}
 
 }
 
@@ -36,8 +38,10 @@ class LadrillosParedIzquierda inherits Ladrillo {
 
 	override method image() = "ladrillonivel.png"
 
+
 	override method chocaCon(alguien) {
 		alguien.position(alguien.position().right(1))
+
 	}
 
 }
@@ -119,3 +123,15 @@ class LadrillosParedDerecha inherits Ladrillo {
 
 }
 
+
+object gravedad{
+	method nombre()=self
+	method terrestre(personajes){
+		personajes.forEach{algo=>if(self.comprueboPosicion(algo).isEmpty()){algo.position(algo.position().down(1))}
+			
+		}
+	}
+	method teMueres() {}
+	method comprueboPosicion(algo)=game.getObjectsIn(algo.position().down(1))
+	
+}
