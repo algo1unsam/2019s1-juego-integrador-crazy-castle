@@ -47,7 +47,7 @@ class Puerta {
 		keyboard.up().onPressDo({ self.salida()})
 	}
 
-}
+} 
 
 class PuertaQueHaceSubir inherits Puerta {
 

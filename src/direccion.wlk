@@ -43,7 +43,7 @@ object gravedad {
 		}
 		
 	}
-
+ 
 	method teMueres() {
 	}
 

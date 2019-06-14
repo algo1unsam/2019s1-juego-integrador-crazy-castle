@@ -19,7 +19,7 @@ object conejo {
 		return imagen
 	}
 
-	method move(nuevaPosicion) {
+	method move(nuevaPosicion)  {
 		if (self.sigueVivo()) {
 			self.position(nuevaPosicion)
 		}

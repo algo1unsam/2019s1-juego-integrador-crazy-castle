@@ -90,7 +90,7 @@ object juego {
 		game.onTick(1000, "caminaHacialaIzquierda", { malo1.movimiento()})
 		
 		var personajesConGravedad = [ conejo, malo1, malo, caja, caja1 ]
-		
+		 
 			// gravedad
 		game.onTick(500, "gravedad", { gravedad.bajar(conejo)
 			gravedad.bajar(caja)

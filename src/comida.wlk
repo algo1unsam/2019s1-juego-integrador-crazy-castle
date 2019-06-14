@@ -16,7 +16,7 @@ class Zanahoria {
 	method teMueres() {
 	}
 
-}
+} 
 
 class Caja {
 
