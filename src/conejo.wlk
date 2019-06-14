@@ -25,6 +25,7 @@ object conejo {
 	method comer(unazanahoria) {
 		if (self.sigueVivo()) {
 			puntos += 100
+			
 			game.removeVisual(unazanahoria)
 			puertaMagica.restarZanahoria()
 

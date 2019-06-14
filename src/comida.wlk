@@ -22,7 +22,6 @@ class Caja {
 	var property position
 
 	method nombre() = "caja"
-
 	method image() = "caja1.png"
 
 	
@@ -35,8 +34,7 @@ class Caja {
 		}
 	}
 
-	method teMueres() {
-	}
+	method teMueres() {	}
 
 	method repeleAlMalo() {
 		if (not game.colliders(self).isEmpty()) {

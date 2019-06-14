@@ -5,41 +5,40 @@ import juego.*
 import comida.*
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
-class Ladrillo {
+class ParedDeLadrillos {
 
 	var property position = game.at(0, 0)
 
 	method image() = "ladrillonivel.png"
 
-	method chocaCon(alguien) {
-	}
+	method chocaCon(alguien) {}
 
-	method teMueres() {
-	}
+	method teMueres() {	}
 
 }
-
-class LadrillosnivelSiguientes inherits Ladrillo {
+class LadrillosParedDerecha inherits ParedDeLadrillos {
 
 	override method image() = "ladrillonivel.png"
 
 	override method chocaCon(alguien) {
-
-				
-
-		}
+		alguien.position(alguien.position().left(1))
+	}
 
 }
 
-class LadrillosParedIzquierda inherits Ladrillo {
+class LadrillosParedIzquierda inherits ParedDeLadrillos {
 
 	override method image() = "ladrillonivel.png"
 
 
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().right(1))
+	override method chocaCon(alguien) {		alguien.position(alguien.position().right(1))	}
 
-	}
+}
+class LadrillosnivelSiguientes inherits ParedDeLadrillos {
+
+	override method image() = "ladrillonivel.png"
+
+	override method chocaCon(alguien) {		}
 
 }
 
@@ -110,15 +109,6 @@ class Piso {
 
 }
 
-class LadrillosParedDerecha inherits Ladrillo {
-
-	override method image() = "ladrillonivel.png"
-
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().left(1))
-	}
-
-}
 
 
 object puertaMagica inherits PuertaQueHaceSubir{
@@ -127,7 +117,9 @@ object puertaMagica inherits PuertaQueHaceSubir{
 	method zanahoriasFaltantes(param){
 		self.position(game.at(19,1))
 		cantidad=param
+
 	}
+
 	method restarZanahoria(){
 		cantidad-=1
 		if(cantidad==0){
@@ -155,3 +147,4 @@ object gameOver inherits Puerta{
 		juego.dibujar(self)
 	}
 }
+

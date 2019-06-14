@@ -31,9 +31,11 @@ puertaMagica.crearZanahorias([new Position(19,9),new Position(13,5),new Position
 		const zanahoria1 = new Zanahoria()
 		const zanahoria2 = new Zanahoria()
 		const zanahoria3 = new Zanahoria()
+
 		const zanahoria4 = new Zanahoria()
 		*/
 		var caja = new Caja(position = game.at(10, 5))
+
 		var caja1 = new Caja(position = game.at(6, 9))
 		var malo = new Malo(imagen = "malo1.png", position = game.at(15, 1),cantidadpasosIzquierda=10,cantidadpasosDerecha=10)
 		var malo1 = new Malo(imagen = "malo2.png", position = game.at(6, 13),cantidadpasosIzquierda=10,cantidadpasosDerecha=10)
@@ -111,9 +113,7 @@ puertaMagica.crearZanahorias([new Position(19,9),new Position(13,5),new Position
 		game.addVisual(dibujo)
 		
 	}
-	method juego2() {
-		game.stop() 
-	}
+	
 
 }
 

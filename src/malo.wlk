@@ -49,7 +49,7 @@ method nombre()=self
 				cantidadDePasos=cantidadpasosIzquierda
 	}
 	method chocaCon(algo) {
-		if (algo == conejo) {
+		if (self.position() == conejo.position()) {
 			conejo.restaPuntos()
 			game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
 			
