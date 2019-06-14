@@ -32,25 +32,27 @@ object izquierda {
 object gravedad {
 
 	method nombre() = self
-
-
-	
-	
 	method bajar(personaje) {
-		if(game.getObjectsIn(personaje.position().down(1)).isEmpty()){
 		
-			personaje.position(personaje.position().down(1))
+			personaje.forEach{alguien =>self.comprueboPosicion(alguien)}
+			
 		}
 		
-	}
- 
+		method comprueboPosicion(algo)
+		{
+			if( game.getObjectsIn(algo.position().down(1)).isEmpty()){
+				self.muevo(algo)
+			}
+			
+		}
+		
+
 	method teMueres() {
 	}
 
-	method muevo(cosas) {
-		if (cosas.position().down(1).isEmpty()) {
-			cosas.position().down(1)
-		}
+	method muevo(alguien) {
+	  alguien.position(alguien.position().down(1))
+		
 	}
 	
 }
