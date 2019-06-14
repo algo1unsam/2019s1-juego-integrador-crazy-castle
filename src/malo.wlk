@@ -9,6 +9,7 @@ class Malo {
 	var property cantidadpasosDerecha
 	var property position = game.at(6, 13)
 	var property movimientoDerecha=true
+	var property cantidadDePasos=null
 	method image() = imagen
 	
 method nombre()=self
@@ -26,7 +27,6 @@ method nombre()=self
 		if (cantidadpasosDerecha > 0) {
 			cantidadpasosDerecha -= 1
 			self.position(self.position().right(1))
-			self.movimientoDerecha()
 		}
 	}
 	
@@ -41,12 +41,13 @@ method nombre()=self
 	}
 
 	method resetpasos() {
-		var reset=null
-		reset=cantidadpasosDerecha
-		cantidadpasosIzquierda = reset
+		cantidadpasosDerecha=cantidadDePasos
+		cantidadpasosIzquierda=cantidadDePasos
 	
 	}
-
+	method cantidadPasos(){
+				cantidadDePasos=cantidadpasosIzquierda
+	}
 	method chocaCon(algo) {
 		if (algo == conejo) {
 			conejo.restaPuntos()
