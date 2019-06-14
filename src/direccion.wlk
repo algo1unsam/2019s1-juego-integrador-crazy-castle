@@ -28,7 +28,7 @@ object izquierda {
 	}
 
 }
-
+ 
 object gravedad {
 
 	method nombre() = self
