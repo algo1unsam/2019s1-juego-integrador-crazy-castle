@@ -11,6 +11,7 @@ class Zanahoria {
 
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
+		puertaMagica.restarZanahoria(self)
 	}
 
 	method teMueres() {	}
@@ -28,10 +29,10 @@ class Caja {
 	
 	method chocaCon(conejo) {
 		if (position.right(1)== conejo.position()) {
-			position = position.right(1)
+			position = position.left(1)
 		}
 		if (position.left(1) == conejo.position()) {
-			position = position.left(1)
+			position = position.right(1)
 		}
 	}
 
