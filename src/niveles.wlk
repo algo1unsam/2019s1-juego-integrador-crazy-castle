@@ -1,17 +1,20 @@
 import wollok.game.*
 import conejo.*
 import direccion.*
+
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
-
 class Ladrillo {
 
 	var property position = game.at(0, 0)
 
 	method image() = "ladrillonivel.png"
 
-	method chocaCon(alguien) {	}
-		method teMueres() {}
+	method chocaCon(alguien) {
+	}
+
+	method teMueres() {
+	}
 
 }
 
@@ -20,7 +23,11 @@ class LadrillosnivelSiguientes inherits Ladrillo {
 	override method image() = "ladrillonivel.png"
 
 	override method chocaCon(alguien) {
-		alguien.position(alguien.position().up(1))
+		if (self.position().left(1) > conejo.position()) {
+			conejo.position(conejo.position().left(1))
+		} 
+		else
+		conejo.position(conejo.position().right(1))
 	}
 
 }
@@ -31,8 +38,8 @@ class LadrillosParedIzquierda inherits Ladrillo {
 
 	override method chocaCon(alguien) {
 		alguien.position(alguien.position().right(1))
-
 	}
+
 }
 
 class Puerta {
@@ -47,7 +54,7 @@ class Puerta {
 		keyboard.up().onPressDo({ self.salida()})
 	}
 
-} 
+}
 
 class PuertaQueHaceSubir inherits Puerta {
 
@@ -62,19 +69,18 @@ class PuertaQueHaceSubir inherits Puerta {
 	}
 
 	override method salida() {
-		if(conejo.position()==self.position()){
-		conejo.position(puertaSalida.position())
-		self.seteoTecla()
-		
-		}}
-		
-	method seteoTecla(){
-		tecla= false
-	}	
+		if (conejo.position() == self.position()) {
+			
+			conejo.position(puertaSalida.position())
+			self.seteoTecla()
+		}
 	}
-	
 
+	method seteoTecla() {
+		tecla = false
+	}
 
+}
 
 class PuertaQueHaceBajar inherits Puerta {
 
@@ -84,23 +90,24 @@ class PuertaQueHaceBajar inherits Puerta {
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
-		if(tecla){
-		conejo.position(puertaEntrada.position())
-		tecla=false
+		if (tecla) {
+			conejo.position(puertaEntrada.position())
+			tecla = false
+		}
 	}
-	
-	}
-	
 
 }
+
 class Piso {
+
 	var property position
-	method imagen()="ladrillos.png"
-	method choque(alguien){
 
+	method imagen() = "ladrillos.png"
+
+	method choque(alguien) {
 	}
-}
 
+}
 
 class LadrillosParedDerecha inherits Ladrillo {
 
@@ -108,7 +115,7 @@ class LadrillosParedDerecha inherits Ladrillo {
 
 	override method chocaCon(alguien) {
 		alguien.position(alguien.position().left(1))
+	}
 
-}}
-
+}
 

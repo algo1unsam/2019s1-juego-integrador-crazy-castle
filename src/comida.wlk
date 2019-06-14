@@ -13,8 +13,7 @@ class Zanahoria {
 		unconejo.comer(self)
 	}
 
-	method teMueres() {
-	}
+	method teMueres() {	}
 
 } 
 
@@ -29,8 +28,7 @@ class Caja {
 	
 	method chocaCon(conejo) {
 		if (position.right(1)== conejo.position()) {
-			
-		position = position.right(1)
+			position = position.right(1)
 		}
 		if (position.left(1) == conejo.position()) {
 			position = position.left(1)
