@@ -5,12 +5,11 @@ import niveles.*
 import direccion.*
 
 object conejo {
- 
 	var property sigueVivo = true
-	
 	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
+
 	var property posicionAnterior=null
 	
 	method chocaCon(algo){
@@ -31,6 +30,7 @@ object conejo {
 		if (self.sigueVivo()) {
 			puntos += 100
 			game.removeVisual(unazanahoria)
+			puertaMagica.restarZanahoria()
 
 	}
 }
@@ -44,7 +44,6 @@ object conejo {
 
 		if (puntos >= 100) {
 			puntos -= 100
-			
 		} else {
 			self.teMueres()
 		

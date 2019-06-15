@@ -4,14 +4,13 @@ import direccion.*
 import niveles.*
 
 class Zanahoria {
-
+	var property position
 	method nombre() = "zanahoria"
 
 	method image() = "zanahoria.png"
 
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
-		
 	}
 
 	method teMueres() {	}

@@ -1,7 +1,8 @@
 import wollok.game.*
 import conejo.*
 import direccion.*
-
+import juego.*
+import comida.*
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
 class ParedDeLadrillos {
@@ -64,7 +65,7 @@ class PuertaQueHaceSubir inherits Puerta {
 
 	method creoPuertaEn(posicion) {
 		puertaSalida = new PuertaQueHaceBajar(position = posicion, puertaEntrada = self)
-		game.addVisual(puertaSalida)
+		juego.dibujar(puertaSalida)
 	}
 
 	override method salida() {
@@ -107,8 +108,40 @@ class Piso {
 	}
 
 }
+object puertaMagica inherits PuertaQueHaceSubir{
+	
+	var cantidad=null
+	method zanahoriasFaltantes(param){
+		self.position(game.at(19,1))
+		cantidad=param
 
-object puertaMagica {
-	
 	}
-	
+
+	method restarZanahoria(){
+		cantidad-=1
+		if(cantidad==0){
+			juego.dibujar(self)
+			self.creoPuertaEn(game.at(19,13))
+			gameOver.crearPuerta()
+		}
+	}
+	method crearZanahorias(pos) {
+		var posicion=[]
+		posicion.addAll(pos)
+		self.zanahoriasFaltantes(pos.size())
+		posicion.forEach{p=>juego.dibujar(new Zanahoria(position=p))}
+	}
+}
+
+object gameOver inherits Puerta{
+	var property position = game.at(23,13)
+
+	override method image() = "puerta subida.png"
+	override method salida(){
+		game.stop()
+	}
+	method crearPuerta() {
+		juego.dibujar(self)
+	}
+}
+
