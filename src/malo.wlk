@@ -4,7 +4,7 @@ import conejo.*
 class Malo {
 
 	var imagen
-    
+     var colision= true
 	var property cantidadpasosIzquierda
 	var property cantidadpasosDerecha
 	var property position = game.at(6, 13)
@@ -14,6 +14,7 @@ class Malo {
 method nombre()=self
 
 	method movimiento() {
+		self.resetcolision()
 		self.seMueveAlaIzquierda()
 		if (cantidadpasosIzquierda == 0) {
 			self.seMueveAlaDerecha()	}
@@ -48,22 +49,24 @@ method nombre()=self
 	}
 
 	method chocaCon(algo) {
-		if (self.position() == conejo.position()) {
+		if (self.position() == conejo.position()&& colision) {
+			colision=false
 			conejo.restaPuntos()
-			game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
-			
+		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
+		    
 		}
+       self.resetcolision()
 	}
-
+    method resetcolision(){
+    	colision=true
+    }
 	method teMueres() {
 		game.removeVisual(self)
 	}
 	method retrocede(){
 		if(movimientoDerecha){
 			self.seMueveAlaIzquierda()
-		}else{
-			self.seMueveAlaDerecha()
-		}
+		}else{	self.seMueveAlaDerecha()}
 	}
 }
 

@@ -11,7 +11,7 @@ object conejo {
 	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
-	var property count=1
+	var property posicionAnterior=null
 	
 	method chocaCon(algo){
 }
@@ -22,6 +22,7 @@ object conejo {
 	method move(nuevaPosicion)  {
 		if (self.sigueVivo()) {
 			self.position(nuevaPosicion)
+			
 		}
 		
 	}
@@ -29,7 +30,6 @@ object conejo {
 	method comer(unazanahoria) {
 		if (self.sigueVivo()) {
 			puntos += 100
-			
 			game.removeVisual(unazanahoria)
 
 	}

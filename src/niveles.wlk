@@ -30,7 +30,7 @@ class LadrillosParedIzquierda inherits ParedDeLadrillos {
 	override method image() = "ladrillonivel.png"
 
 
-	override method chocaCon(alguien) {		alguien.position(alguien.position().right(1))	}
+	override method chocaCon(alguien) {	alguien.position(alguien.position().right(1))	}
 
 }
 class LadrillosnivelSiguientes inherits ParedDeLadrillos {

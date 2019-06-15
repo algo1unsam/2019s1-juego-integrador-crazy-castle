@@ -27,12 +27,11 @@ class Caja {
 
 	
 	method chocaCon(conejo) {
-		if (position.right(1)== conejo.position()) {
-			self.position().left(1)
+		if (izquierda==conejo.posicionAnterior()) {
+			self.position(self.position().left(1))
 		}
-		if (position.left(1) == conejo.position()) {
-			self.position().right(1)
-		}
+		else{
+		self.position(self.position().right(1))}
 	}
 
 	method teMueres() {	}
