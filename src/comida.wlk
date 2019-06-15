@@ -12,7 +12,6 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
-
 	method teMueres() {	}
 
 } 
