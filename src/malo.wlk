@@ -4,20 +4,23 @@ import conejo.*
 class Malo {
 
 	var imagen
-	var aux
-	var property cantidadpasos=null
-	var property cantidadpasosDerecha=null
+     var colision= true
+	var property cantidadpasosIzquierda
+	var property cantidadpasosDerecha
 	var property position = game.at(6, 13)
-	var property ultimoMovimiento=null
+	var property movimientoDerecha=true
+	var property cantidadDePasos=null
 	method image() = imagen
+	
 method nombre()=self
+
 	method movimiento() {
+		self.resetcolision()
 		self.seMueveAlaIzquierda()
-		if (cantidadpasos == 0) {
-			self.seMueveAlaDerecha()
-		}
-		if (cantidadpasos == 0 && cantidadpasosDerecha == 0) {
-			self.resetpasos()
+		if (cantidadpasosIzquierda == 0) {
+			self.seMueveAlaDerecha()	}
+		if (cantidadpasosIzquierda == 0 && cantidadpasosDerecha == 0) {
+			self.resetpasos( )
 		}
 	}
 
@@ -25,40 +28,46 @@ method nombre()=self
 		if (cantidadpasosDerecha > 0) {
 			cantidadpasosDerecha -= 1
 			self.position(self.position().right(1))
-			ultimoMovimiento="derecha"
 		}
 	}
+	
+	
 
 	method seMueveAlaIzquierda() {
-		if (cantidadpasos > 0) {
-			cantidadpasos -= 1
+		if (cantidadpasosIzquierda > 0) {
+			cantidadpasosIzquierda -= 1
 			self.position(self.position().left(1))
-			ultimoMovimiento="izquierda"
+			movimientoDerecha=false
 		}
 	}
 
 	method resetpasos() {
-		cantidadpasos = aux
-		cantidadpasosDerecha = aux
+		cantidadpasosDerecha=cantidadDePasos
+		cantidadpasosIzquierda=cantidadDePasos
+	
 	}
-
+	method cantidadPasos(){
+				cantidadDePasos=cantidadpasosIzquierda
+	}
 	method chocaCon(algo) {
-		if (algo == conejo and conejo.count() == 1) {
+		if (self.position() == conejo.position()&& colision) {
+			colision=false
 			conejo.restaPuntos()
-			conejo.count(0)
-			game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
+		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
+		    
 		}
+       self.resetcolision()
 	}
-
+    method resetcolision(){
+    	colision=true
+    }
 	method teMueres() {
 		game.removeVisual(self)
 	}
 	method retrocede(){
-		if(ultimoMovimiento=="derecha"){
+		if(movimientoDerecha){
 			self.seMueveAlaIzquierda()
-		}else{
-			self.seMueveAlaDerecha()
-		}
+		}else{	self.seMueveAlaDerecha()}
 	}
 }
 

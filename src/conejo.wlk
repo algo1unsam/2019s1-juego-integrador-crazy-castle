@@ -2,27 +2,26 @@ import wollok.game.*
 import comida.*
 import malo.*
 import niveles.*
-import puertas.*
-import piso.*
-
 import direccion.*
 
 object conejo {
-
 	var property sigueVivo = true
-	var property zanahorias = 10
 	var property puntos = 10000
 	var property position = game.at(12, 1)
 	var imagen = "conejo2.png"
-	var property direccion=null	
-	var property count=1
+
+	var property posicionAnterior=null
+	
+	method chocaCon(algo){
+}
 	method image() {
 		return imagen
 	}
 
-	method move(nuevaPosicion) {
+	method move(nuevaPosicion)  {
 		if (self.sigueVivo()) {
 			self.position(nuevaPosicion)
+			
 		}
 		
 	}
@@ -31,9 +30,10 @@ object conejo {
 		if (self.sigueVivo()) {
 			puntos += 100
 			game.removeVisual(unazanahoria)
-		}
-	}
+			puertaMagica.restarZanahoria()
 
+	}
+}
    
     method entraPor(unapuerta){
     		if(self.position()==unapuerta.position())
@@ -44,7 +44,6 @@ object conejo {
 
 		if (puntos >= 100) {
 			puntos -= 100
-			
 		} else {
 			self.teMueres()
 		
@@ -57,14 +56,16 @@ object conejo {
 		game.removeVisual(self)
 		self.cambioDeImagen()
 		sigueVivo = false
+		game.stop()
 	}
 
 	method cambioDeImagen() {
-		imagen = "conejo.png"
+		imagen = "conejoPierde.png"
 		game.addVisual(self)
 		game.say(self, " Perdiste ")
 
 	}
+	
 	
 	
 }
