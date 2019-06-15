@@ -37,16 +37,13 @@ class Caja {
 			elementos.forEach{persona=>persona.muerto()}
 		}
 	}
-<<<<<<< HEAD
+
 	method teMueres() {}
 
-=======
-	method muerto() {}
 	method repeleAlMalo(){
 		if(not game.colliders(self).isEmpty()){
 			(game.colliders(self)).forEach{p=>p.retrocede()}
 		}
 	}
->>>>>>> branch 'master' of https://github.com/algo1unsam/2019s1-juego-integrador-crazy-castle.git
 }
 
