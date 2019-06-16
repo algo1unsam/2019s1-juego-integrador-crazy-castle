@@ -82,16 +82,27 @@ puertaMagica.crearZanahorias([new Position(19,9),new Position(13,5),new Position
 		
 //PAREDES
 		var posParedes = []
-		var posParedIzquierda = []
-		var posParedDerecha = []
-		(0 .. ancho).forEach{ n => posParedes.add(new Position(n, 0))} // bordeAbajo
-		(0 .. largo).forEach{ n => posParedIzquierda.add(new Position(0, n))} // bordeIzq 
-		(0 .. largo).forEach{ n => posParedDerecha.add(new Position(ancho, n))} // bordeDer
-		posParedes.forEach{ p => self.dibujar(new LadrillosnivelSiguientes(position = p))}
-		posParedIzquierda.forEach{ p => self.dibujar(new LadrillosParedIzquierda(position = p))}
-		posParedDerecha.forEach{ p => self.dibujar(new LadrillosParedDerecha(position = p))}
+		var posParedIzquierda=[]
+		
+		(0 .. ancho).forEach{ n => posParedes.add(new Position(n, 0)) } // bordeAbajo
+		(0 .. largo).forEach{ n => posParedIzquierda.add(new Position(0, n)) } // bordeIzq 
+		(0 .. largo).forEach{ n => posParedes.add(new Position(ancho, n)) } // bordeDer
+		
+		posParedes.forEach { p => self.dibujar(new LadrillosnivelSiguientes(position=p))}
+		posParedIzquierda.forEach { p => self.dibujar(new LadrillosParedIzquierda(position=p))}
+	
+	//COLISIONES
+   game.whenCollideDo (conejo, {algo => algo.chocaCon(conejo)})	
+   game.onTick(1000,"caminaHacialaIzquierda",{malo.movimiento()} )
+   game.onTick(1000,"caminaHacialaIzquierda",{malo1.movimiento()} )
+ 
+ var personajesConGravedad=[conejo,malo1,malo,caja,caja1]
+ //	TECLADO
+	keyboard.left().onPressDo {izquierda.movimientoIzquierda()}
+	keyboard.right().onPressDo {derecha.movimientoDerecha()}
+	
+
 			// COLISIONES
-		game.whenCollideDo(conejo, { algo => algo.chocaCon(conejo)})
 		game.whenCollideDo(caja1, { algo => algo.chocaCon(caja)})
 		game.whenCollideDo(caja, { algo => algo.chocaCon(caja)}
 		)

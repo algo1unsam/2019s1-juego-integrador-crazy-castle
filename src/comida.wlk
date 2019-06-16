@@ -31,12 +31,28 @@ class Caja {
 		else{
 		self.position(self.position().right(1))}
 	}
-
-	method teMueres() {	}
-
 	method repeleAlMalo() {
 		if (not game.colliders(self).isEmpty()) {
 			(game.colliders(self)).forEach{ p => p.retrocede()}
+		}
+	}
+
+
+	method teArrastra() {
+		if (self.position() == conejo.position()) {
+		self.position().up(1)
+		
+		}
+	}
+	method aplasta(){
+		var elementos=#{}
+		elementos.addAll(gravedad.comprueboPosicion(self))
+		if(not elementos.isEmpty()){
+			elementos.forEach{persona=>persona.muerto()}
+		}
+	}
+
+	method teMueres() {}
 		}
 	}
 
