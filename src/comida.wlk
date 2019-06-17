@@ -2,7 +2,7 @@ import wollok.game.*
 import conejo.*
 import direccion.*
 import niveles.*
-
+import juego.*
 class Zanahoria {
 	var property position
 	method nombre() = "zanahoria"
@@ -46,15 +46,35 @@ class Caja {
 	}
 	method aplasta(){
 		var elementos=#{}
-		elementos.addAll(gravedad.comprueboPosicion(self))
+		elementos.addAll(game.getObjectsIn(self.position()))
 		if(not elementos.isEmpty()){
 			elementos.forEach{persona=>persona.muerto()}
 		}
 	}
 
 	method teMueres() {}
+}
+object superTonico{//este objeto le da super fuerza para poder matar 1 malo
+	var property tiempo=0
+	method chocaCon(conejo) {//cambio la foto del conejo, al agarrar el objeto
+		juego.borrar(conejo)
+		conejo.imagen("conejo_musculos.png")
+		juego.dibujar(conejo)
+		tiempo=100  //tiempo que durara el efecto
+		juego.borrar(self)
+		game.onTick(300,"superconejo",{self.tiempo()})//contara el tiempo
+	}
+	method tiempoTranscurrido(){
+		if(tiempo>0){
+			tiempo-=1
+		}else{
+			juego.borrar(conejo)
+			conejo.imagen("conejo2.png")
+			juego.dibujar(conejo)
 		}
 	}
-
+	method terminaElEfecto(){
+		tiempo=0
+	}
+	method teMueres() {	}
 }
-

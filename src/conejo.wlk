@@ -3,12 +3,12 @@ import comida.*
 import malo.*
 import niveles.*
 import direccion.*
-
+import juego.*
 object conejo {
 	var property sigueVivo = true
 	var property puntos = 10000
 	var property position = game.at(12, 1)
-	var imagen = "conejo2.png"
+	var property imagen = "conejo2.png"
 
 	var property posicionAnterior=null
 	
@@ -29,7 +29,7 @@ object conejo {
 	method comer(unazanahoria) {
 		if (self.sigueVivo()) {
 			puntos += 100
-			game.removeVisual(unazanahoria)
+			juego.borrar(unazanahoria)
 			puertaMagica.restarZanahoria()
 
 	}
@@ -52,8 +52,7 @@ object conejo {
 		
 	}
 	method teMueres() {
-
-		game.removeVisual(self)
+		juego.borrar(self)
 		self.cambioDeImagen()
 		sigueVivo = false
 		game.stop()
@@ -61,7 +60,7 @@ object conejo {
 
 	method cambioDeImagen() {
 		imagen = "conejoPierde.png"
-		game.addVisual(self)
+		juego.dibujar(self)
 		game.say(self, " Perdiste ")
 
 	}

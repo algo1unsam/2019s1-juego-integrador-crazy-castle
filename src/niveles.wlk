@@ -44,7 +44,7 @@ class LadrillosnivelSiguientes inherits ParedDeLadrillos {
 
 class Puerta {
 
-	var property tecla = false
+	//var property tecla = false
 
 	method image()
 
@@ -53,7 +53,6 @@ class Puerta {
 	method chocaCon(conejo) {
 		keyboard.up().onPressDo({ self.salida()})
 	}
-
 }
 
 class PuertaQueHaceSubir inherits Puerta {
@@ -69,16 +68,12 @@ class PuertaQueHaceSubir inherits Puerta {
 	}
 
 	override method salida() {
-		if (conejo.position() == self.position()) {
-			
+		if (tecla.estaTocada()) {
 			conejo.position(puertaSalida.position())
-			self.seteoTecla()
 		}
 	}
 
-	method seteoTecla() {
-		tecla = false
-	}
+	
 
 }
 
@@ -90,9 +85,9 @@ class PuertaQueHaceBajar inherits Puerta {
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
-		if (tecla) {
+		if (tecla.estaTocada()) {
 			conejo.position(puertaEntrada.position())
-			tecla = false
+		
 		}
 	}
 
@@ -134,9 +129,9 @@ object puertaMagica inherits PuertaQueHaceSubir{
 }
 
 object gameOver inherits Puerta{
-	var property position = game.at(23,13)
+	var property position = game.at(22,13)
 
-	override method image() = "puerta subida.png"
+	override method image() = "puerta_fin.png"
 	override method salida(){
 		game.stop()
 	}

@@ -1,6 +1,7 @@
 import wollok.game.*
 import conejo.*
-
+import comida.*
+import juego.*
 class Malo {
 
 	var imagen
@@ -18,7 +19,8 @@ method nombre()=self
 		self.resetcolision()
 		self.seMueveAlaIzquierda()
 		if (cantidadpasosIzquierda == 0) {
-			self.seMueveAlaDerecha()	}
+			self.seMueveAlaDerecha()
+			}
 		if (cantidadpasosIzquierda == 0 && cantidadpasosDerecha == 0) {
 			self.resetpasos( )
 		}
@@ -50,13 +52,19 @@ method nombre()=self
 				cantidadDePasos=cantidadpasosIzquierda
 	}
 	method chocaCon(algo) {
-		if (self.position() == conejo.position()&& colision) {
+		if(superTonico.tiempo()==0){//pregunta si tomo el tonico
+		if (self.position() == conejo.position()&& colision ) {
 			colision=false
 			conejo.restaPuntos()
 		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
-		    
 		}
        self.resetcolision()
+	}else{//aca es cuando ya lo tomo
+		self.teMueres()
+		superTonico.terminaElEfecto()
+		juego.borrar(self)
+	}
+	
 	}
     method resetcolision(){
     	colision=true
