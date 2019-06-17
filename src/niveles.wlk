@@ -130,13 +130,62 @@ object puertaMagica inherits PuertaQueHaceSubir{
 
 object gameOver inherits Puerta{
 	var property position = game.at(22,13)
-
+	var niveles=2
 	override method image() = "puerta_fin.png"
 	override method salida(){
+		if(niveles==0){
 		game.stop()
+		
+		}else{
+			game.clear()
+			juego.nivel2()
+			niveles--
+		}
 	}
 	method crearPuerta() {
 		juego.dibujar(self)
 	}
 }
-
+class PisoEnMovimiento inherits ParedDeLadrillos{
+	var property movimiento=6
+	var property movimientoizq=null
+	var property movimientoder=null
+	method reseteoMovimiento(){
+		movimientoizq=movimiento
+		movimientoder=movimiento
+	}
+	method movimiento(){
+		self.seMueveAlaIzquierda()
+		if (movimientoizq == 0) {
+			self.seMueveAlaDerecha()
+			}
+		 if (movimientoizq == 0 && movimientoder == 0) {
+			self.reseteoMovimiento( )
+		}
+		
+	}
+	method seMueveAlaDerecha() {
+		var elemento=[]
+		elemento.addAll(game.getObjectsIn(position.up(1)))
+		if (movimientoder > 0) {
+			movimientoder -= 1
+			self.position(self.position().right(1))
+			if(not elemento.isEmpty()){
+				elemento.forEach{p=>p.move(p.position().right(1))}
+			}
+		}
+	}
+	method seMueveAlaIzquierda() {
+		var elemento=[]
+		elemento.addAll(game.getObjectsIn(position.up(1)))
+		if (movimientoizq > 0) {
+			movimientoizq -= 1
+			self.position(self.position().left(1))
+			if(not elemento.isEmpty()){
+				elemento.forEach{p=>p.move(p.position().left(1))}
+			}
+		}
+	}
+	
+	
+}

@@ -30,6 +30,7 @@ method nombre()=self
 		if (cantidadpasosDerecha > 0) {
 			cantidadpasosDerecha -= 1
 			self.position(self.position().right(1))
+			movimientoDerecha=true
 		}
 	}
 	
@@ -52,19 +53,25 @@ method nombre()=self
 				cantidadDePasos=cantidadpasosIzquierda
 	}
 	method chocaCon(algo) {
-		if(superTonico.tiempo()==0){//pregunta si tomo el tonico
-		if (self.position() == conejo.position()&& colision ) {
+		if(algo==conejo){
+		if(superTonico.tiempo()==0 && colision){//pregunta si tomo el tonico
 			colision=false
 			conejo.restaPuntos()
 		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
-		}
+		
        self.resetcolision()
 	}else{//aca es cuando ya lo tomo
 		self.teMueres()
 		superTonico.terminaElEfecto()
 		juego.borrar(self)
 	}
-	
+	}else{
+		if(movimientoDerecha){
+			self.resetpasos()
+		}else{
+			cantidadpasosIzquierda=0	
+		}
+	}
 	}
     method resetcolision(){
     	colision=true

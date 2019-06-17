@@ -46,11 +46,13 @@ class Caja {
 	}
 	method aplasta(){
 		var elementos=#{}
-		elementos.addAll(game.getObjectsIn(self.position()))
+		elementos.addAll(game.getObjectsIn(position))
 		if(not elementos.isEmpty()){
-			elementos.forEach{persona=>persona.muerto()}
+			elementos.forEach{persona=>persona.teMueres()}
 		}
 	}
+	method posicionAnterior(){}
+	method comer(param){}
 
 	method teMueres() {}
 }
@@ -64,7 +66,7 @@ object superTonico{//este objeto le da super fuerza para poder matar 1 malo
 		juego.borrar(self)
 		game.onTick(300,"superconejo",{self.tiempo()})//contara el tiempo
 	}
-	method tiempoTranscurrido(){
+	method tiempoTranscurrido(){// cuenta el tiempo q transcurre. y elimina los efectos al terminar
 		if(tiempo>0){
 			tiempo-=1
 		}else{
@@ -73,7 +75,7 @@ object superTonico{//este objeto le da super fuerza para poder matar 1 malo
 			juego.dibujar(conejo)
 		}
 	}
-	method terminaElEfecto(){
+	method terminaElEfecto(){// fin de los efectos del tonico
 		tiempo=0
 	}
 	method teMueres() {	}
