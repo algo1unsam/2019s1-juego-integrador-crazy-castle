@@ -3,63 +3,70 @@ import conejo.*
 import direccion.*
 import juego.*
 import comida.*
+
 //https://www.youtube.com/watch?v=AowvrEbIiKI  sound del juego
 //game.sound()permite poner musica al juego
 class ParedDeLadrillos {
 
 	var property position = game.at(0, 0)
 
+	method nombre() = "ladrillo"
+
 	method image() = "ladrillonivel.png"
 
-	method chocaCon(alguien) {}
+	method chocaCon(alguien) {
+	}
 
-	method teMueres() {	}
-
-}
-class LadrillosParedDerecha inherits ParedDeLadrillos {
-
-	override method image() = "ladrillonivel.png"
-
-	override method chocaCon(alguien) {
-		alguien.position(alguien.position().left(1))
+	method teMueres() {
 	}
 
 }
 
-class LadrillosParedIzquierda inherits ParedDeLadrillos {
+class LadrillosPared inherits ParedDeLadrillos { //modifique para que ambas paredes esten en un solo metodo
 
 	override method image() = "ladrillonivel.png"
 
-
-	override method chocaCon(alguien) {	alguien.position(alguien.position().right(1))	}
+	override method chocaCon(alguien) {
+		if (alguien.posicionAnterior() == derecha) {
+			alguien.position(alguien.position().left(1))
+		} else {
+			alguien.position(alguien.position().right(1))
+		}
+	}
 
 }
+
 class LadrillosnivelSiguientes inherits ParedDeLadrillos {
 
 	override method image() = "ladrillonivel.png"
 
-	override method chocaCon(alguien) {		}
+	override method chocaCon(alguien) {
+	}
 
 }
 
 class Puerta {
 
-	
+	var property position
+
+	method nombre() = "puerta"
 
 	method image()
 
 	method salida()
 
 	method chocaCon(conejo) {
-		self.salida()
+
 	}
-	method teMueres() {	}
+
+	method teMueres() {
+	}
+
 }
 
 class PuertaQueHaceSubir inherits Puerta {
 
-	var puertaSalida = null
-	var property position
+	var property puertaSalida = null
 
 	override method image() = "puerta subida.png"
 
@@ -69,27 +76,19 @@ class PuertaQueHaceSubir inherits Puerta {
 	}
 
 	override method salida() {
-		if (tecla.estaTocada()) {
-			conejo.position(puertaSalida.position())
-		}
+		conejo.position(puertaSalida.position())
 	}
-
-	
 
 }
 
 class PuertaQueHaceBajar inherits Puerta {
 
 	var property puertaEntrada = null
-	var property position
 
 	override method image() = "puerta bajada.png"
 
 	override method salida() {
-		if (tecla.estaTocada()) {
-			conejo.position(puertaEntrada.position())
-		
-		}
+		conejo.position(puertaEntrada.position())
 	}
 
 }
@@ -104,87 +103,111 @@ class Piso {
 	}
 
 }
-object puertaMagica inherits PuertaQueHaceSubir{
-	var property posicionPuerta2=null
-	var cantidad=null
-	method zanahoriasFaltantes(param){
-		self.position(posicionPuerta2)
-		cantidad=param
 
+object puertaMagica inherits PuertaQueHaceSubir {
+
+	var property puertaFinal
+	var cantidad = null
+
+	method zanahoriasFaltantes(param) {
+		// self.position(puertaSalida)
+		cantidad = param
 	}
 
-	method restarZanahoria(){
-		cantidad-=1
-		if(cantidad==0){
+	method restarZanahoria() {
+		cantidad -= 1
+		if (cantidad == 0) {
 			juego.dibujar(self)
-			self.creoPuertaEn(game.at(19,13))
-			gameOver.crearPuerta()
+			self.creoPuertaEn(puertaSalida)
+			puertaFinal.crearPuerta()
 		}
 	}
+
 	method crearZanahorias(pos) {
-		var posicion=[]
+		var posicion = []
 		posicion.addAll(pos)
 		self.zanahoriasFaltantes(pos.size())
-		posicion.forEach{p=>juego.dibujar(new Zanahoria(position=p))}
+		posicion.forEach{ p => juego.dibujar(new Zanahoria(position = p))}
 	}
+
 }
 
-object gameOver inherits Puerta{
-	var property position = game.at(22,13)
-	var niveles=2
+object puertaSiguienteNivel inherits Puerta {
+
 	override method image() = "puerta_fin.png"
-	override method salida(){
-		if(niveles==0){
-		game.stop()
-		
-		}else{
-			game.clear()
-			juego.nivel2()
-			niveles--
-		}
+
+	override method salida() {
+		game.clear()
+		juego.nivel2()
 	}
+
 	method crearPuerta() {
+		position = game.at(22, 13)
 		juego.dibujar(self)
 	}
+
 }
-class PisoEnMovimiento inherits ParedDeLadrillos{
-	var property movimiento=8
-	var property movimientoizq=null
-	var property movimientoder=null
-	method reseteoMovimiento(){
-		movimientoizq=movimiento
-		movimientoder=movimiento
+
+object gameOver inherits Puerta {
+
+	override method image() = "puerta_fin.png"
+
+	override method salida() {
+		game.stop()
 	}
-	method movimiento(){
+
+	method crearPuerta() {
+		position = game.at(22, 13)
+		juego.dibujar(self)
+	}
+
+}
+
+class PisoEnMovimiento inherits ParedDeLadrillos {
+
+	var property movimiento = 8
+	var property movimientoizq = null
+	var property movimientoder = null
+	var property posicionAnterior = null
+
+	method reseteoMovimiento() {
+		movimientoizq = movimiento
+		movimientoder = movimiento
+	}
+
+	method movimiento() {
 		self.seMueveAlaIzquierda()
 		if (movimientoizq == 0) {
 			self.seMueveAlaDerecha()
-			}
-		 if (movimientoizq == 0 && movimientoder == 0) {
+		}
+		if (movimientoizq == 0 && movimientoder == 0) {
 			self.reseteoMovimiento( )
 		}
-		
 	}
+
 	method seMueveAlaDerecha() {
-		var elemento=[]
+		var elemento = []
 		elemento.addAll(game.getObjectsIn(position.up(1)))
 		if (movimientoder > 0) {
 			movimientoder -= 1
-			self.position(self.position().right(1))
-			if(not elemento.isEmpty()){
-				elemento.forEach{p=>p.move(p.position().right(1))}
+			derecha.movimientoDerecha(self)
+			if (not elemento.isEmpty()) {
+				elemento.forEach{ p => derecha.movimientoDerecha(p)}
 			}
 		}
 	}
+
 	method seMueveAlaIzquierda() {
-		var elemento=[]
+		var elemento = []
 		elemento.addAll(game.getObjectsIn(position.up(1)))
 		if (movimientoizq > 0) {
 			movimientoizq -= 1
-			self.position(self.position().left(1))
-			if(not elemento.isEmpty()){
-				elemento.forEach{p=>p.move(p.position().left(1))}
+			izquierda.movimientoIzquierda(self)
+			if (not elemento.isEmpty()) {
+				elemento.forEach{ p => izquierda.movimientoIzquierda(p)}
 			}
 		}
 	}
+
 }
+

@@ -6,9 +6,9 @@ object derecha {
 	method chocaCon(algo) {
 	}
 
-	method movimientoDerecha() {
-		conejo.move(conejo.position().right(1))
-		conejo.posicionAnterior(self)
+	method movimientoDerecha(alguien) {
+		alguien.position(alguien.position().right(1))
+		alguien.posicionAnterior(self)
 	}
 
 	method teMueres() {
@@ -21,9 +21,9 @@ object izquierda {
 	method chocaCon(algo) {
 	}
 
-	method movimientoIzquierda() {
-		conejo.move(conejo.position().left(1))
-	conejo.posicionAnterior(self)
+	method movimientoIzquierda(alguien) {
+		alguien.position(alguien.position().left(1))
+	alguien.posicionAnterior(self)
 	}
 
 	method teMueres() {

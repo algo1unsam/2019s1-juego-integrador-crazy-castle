@@ -12,24 +12,25 @@ class Zanahoria {
 	method chocaCon(unconejo) {
 		unconejo.comer(self)
 	}
-	method teMueres() {	}
+	method teMueres() {	
+	}
 
 } 
 
 class Caja {
 
 	var property position
-
+	var property posicionAnterior=null
 	method nombre() = "caja"
 	method image() = "caja1.png"
 
 	
-	method chocaCon(conejo) {
-		if (izquierda==conejo.posicionAnterior()) {
-			self.position(self.position().left(1))
+	method chocaCon(alguien) {
+		if (izquierda==alguien.posicionAnterior()) {
+			izquierda.movimientoIzquierda(self)
 		}
 		else{
-		self.position(self.position().right(1))}
+		derecha.movimientoDerecha(self)}
 	}
 	method repeleAlMalo() {
 		if (not game.colliders(self).isEmpty()) {
@@ -46,12 +47,12 @@ class Caja {
 	}
 	method aplasta(){
 		var elementos=#{}
-		elementos.addAll(game.getObjectsIn(position))
+		elementos.addAll(game.getObjectsIn(position.down(1)))
 		if(not elementos.isEmpty()){
-			elementos.forEach{persona=>persona.teMueres()}
+			elementos.forEach{persona=>if(persona.nombre()=="zanahoria" or persona.nombre()=="puerta"){position.down(1)}else{persona.teMueres()}}
 		}
 	}
-	method posicionAnterior(){}
+	method posicionAnterior(){return posicionAnterior}
 	method comer(param){}
 
 	method teMueres() {}

@@ -2,14 +2,15 @@ import wollok.game.*
 import conejo.*
 import comida.*
 import juego.*
+import direccion.*
 class Malo {
 
 	var imagen
      var colision= true
 	var property cantidadpasosIzquierda
 	var property cantidadpasosDerecha
-	var property position = game.at(6, 13)
-	var property movimientoDerecha=true
+	var property position 
+	var property posicionAnterior=null
 	var property cantidadDePasos=null
 	var property tiempo=3
 	method image() = imagen
@@ -17,38 +18,25 @@ class Malo {
 method nombre()=self
 
 	method movimiento() {
-		tiempo--
-		if(tiempo==0){
 		self.resetcolision()
-		tiempo=3
-		}
-		self.seMueveAlaIzquierda()
-		if (cantidadpasosIzquierda == 0) {
-			self.seMueveAlaDerecha()
-			}
+		self.movimientoIzquierda()
+		self.movimientoDerecha()
 		if (cantidadpasosIzquierda == 0 && cantidadpasosDerecha == 0) {
 			self.resetpasos( )
 		}
 	}
-
-	method seMueveAlaDerecha() {
-		if (cantidadpasosDerecha > 0) {
-			cantidadpasosDerecha -= 1
-			self.position(self.position().right(1))
-			movimientoDerecha=true
+	method movimientoIzquierda(){
+		if(cantidadpasosIzquierda>0){
+			izquierda.movimientoIzquierda(self)
+			cantidadpasosIzquierda--
 		}
 	}
-	
-	
-
-	method seMueveAlaIzquierda() {
-		if (cantidadpasosIzquierda > 0) {
-			cantidadpasosIzquierda -= 1
-			self.position(self.position().left(1))
-			movimientoDerecha=false
-		}
+	method movimientoDerecha(){
+		if (cantidadpasosIzquierda == 0) {
+			derecha.movimientoDerecha(self)
+			cantidadpasosDerecha--
+			}
 	}
-
 	method resetpasos() {
 		cantidadpasosDerecha=cantidadDePasos
 		cantidadpasosIzquierda=cantidadDePasos
@@ -59,19 +47,15 @@ method nombre()=self
 	}
 	method chocaCon(algo) {
 		if(algo==conejo){
-		if( colision){//pregunta si tomo el tonico
+		if( colision){
 			colision=false
 			conejo.restaPuntos()
 		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
 		
        self.resetcolision()
-	}else{//aca es cuando ya lo tomo
-		self.teMueres()
-		//superTonico.terminaElEfecto()
-		juego.borrar(self)
 	}
 	}else{
-		if(movimientoDerecha){
+		if(posicionAnterior==derecha){
 			self.resetpasos()
 		}else{
 			cantidadpasosIzquierda=0	
@@ -85,9 +69,9 @@ method nombre()=self
 		game.removeVisual(self)
 	}
 	method retrocede(){
-		if(movimientoDerecha){
-			self.seMueveAlaIzquierda()
-		}else{	self.seMueveAlaDerecha()}
+		if(posicionAnterior==derecha){
+			izquierda.movimientoIzquierda(self)
+		}else{	derecha.movimientoDerecha(self)}
 	}
 }
 
