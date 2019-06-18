@@ -11,12 +11,17 @@ class Malo {
 	var property position = game.at(6, 13)
 	var property movimientoDerecha=true
 	var property cantidadDePasos=null
+	var property tiempo=3
 	method image() = imagen
 	
 method nombre()=self
 
 	method movimiento() {
+		tiempo--
+		if(tiempo==0){
 		self.resetcolision()
+		tiempo=3
+		}
 		self.seMueveAlaIzquierda()
 		if (cantidadpasosIzquierda == 0) {
 			self.seMueveAlaDerecha()
@@ -54,7 +59,7 @@ method nombre()=self
 	}
 	method chocaCon(algo) {
 		if(algo==conejo){
-		if(superTonico.tiempo()==0 && colision){//pregunta si tomo el tonico
+		if( colision){//pregunta si tomo el tonico
 			colision=false
 			conejo.restaPuntos()
 		    game.say(conejo, "Te Quedan:"+conejo.puntos()+"de vida")
@@ -62,7 +67,7 @@ method nombre()=self
        self.resetcolision()
 	}else{//aca es cuando ya lo tomo
 		self.teMueres()
-		superTonico.terminaElEfecto()
+		//superTonico.terminaElEfecto()
 		juego.borrar(self)
 	}
 	}else{

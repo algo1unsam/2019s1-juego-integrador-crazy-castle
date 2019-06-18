@@ -44,15 +44,16 @@ class LadrillosnivelSiguientes inherits ParedDeLadrillos {
 
 class Puerta {
 
-	//var property tecla = false
+	
 
 	method image()
 
 	method salida()
 
 	method chocaCon(conejo) {
-		keyboard.up().onPressDo({ self.salida()})
+		self.salida()
 	}
+	method teMueres() {	}
 }
 
 class PuertaQueHaceSubir inherits Puerta {
@@ -104,10 +105,10 @@ class Piso {
 
 }
 object puertaMagica inherits PuertaQueHaceSubir{
-	
+	var property posicionPuerta2=null
 	var cantidad=null
 	method zanahoriasFaltantes(param){
-		self.position(game.at(19,1))
+		self.position(posicionPuerta2)
 		cantidad=param
 
 	}
@@ -147,7 +148,7 @@ object gameOver inherits Puerta{
 	}
 }
 class PisoEnMovimiento inherits ParedDeLadrillos{
-	var property movimiento=6
+	var property movimiento=8
 	var property movimientoizq=null
 	var property movimientoder=null
 	method reseteoMovimiento(){
@@ -186,6 +187,4 @@ class PisoEnMovimiento inherits ParedDeLadrillos{
 			}
 		}
 	}
-	
-	
 }

@@ -7,7 +7,7 @@ import juego.*
 object conejo {
 	var property sigueVivo = true
 	var property puntos = 10000
-	var property position = game.at(12, 1)
+	var property position = game.at(22, 1)
 	var property imagen = "conejo2.png"
 
 	var property posicionAnterior=null

@@ -56,8 +56,10 @@ class Caja {
 
 	method teMueres() {}
 }
+/* 
 object superTonico{//este objeto le da super fuerza para poder matar 1 malo
 	var property tiempo=0
+	method image()="superTonico.png"
 	method chocaCon(conejo) {//cambio la foto del conejo, al agarrar el objeto
 		juego.borrar(conejo)
 		conejo.imagen("conejo_musculos.png")
@@ -80,3 +82,4 @@ object superTonico{//este objeto le da super fuerza para poder matar 1 malo
 	}
 	method teMueres() {	}
 }
+*/
