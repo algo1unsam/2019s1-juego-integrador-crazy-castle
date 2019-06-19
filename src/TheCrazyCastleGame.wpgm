@@ -3,7 +3,7 @@ import juego.*
 program bugsBunny {
 
 
-juego.nivel2()
+juego.cargar()
 game.start()
 }
  
