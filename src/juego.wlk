@@ -127,11 +127,7 @@ object juego {
 		var personajesConGravedad = []
 		malo.cantidadPasos()
 		malo1.cantidadPasos()
-		var vuelveDeLaLava=game.at(5,13)
-		const lava0=new Lava(position=game.at(11,11),posicionAMover=vuelveDeLaLava)
-		const lava1=new Lava(position=game.at(12,11),posicionAMover=vuelveDeLaLava)
-		self.dibujar(lava0)
-		self.dibujar(lava1)
+		
 		
 //LADRILLOS
 	self.bordesDelMapa(ancho,largo)
@@ -142,7 +138,7 @@ object juego {
 		paredMedio.addAll([ new Position(12,1), new Position(12,2), new Position(12,3), new Position(12,4), new Position (12,5), new Position (12,6), new Position (12,7), new Position (12,8), new Position (1,4), new Position (2,4), new Position (3,4), new Position (4,4), new Position (5,4), new Position (6,4), new Position (7,4), new Position (8,4), new Position (9,4), new Position (10,4), new Position (11,4), new Position (13,4), new Position (14,4), new Position (15,4), new Position (16,4), new Position (17,4), new Position (18,4), new Position (19,4), new Position (20,4) ])
 		posicionNiveles.addAll([ new Position(1, 8), new Position(2, 8), new Position(3, 8), new Position(4, 8), new Position(5,8), new Position(6,8), new Position(7,8), new Position(8,8), new Position(9,8), new Position(10,8), new Position(11,8), new Position(15,8), new Position(16,8), new Position(17,8), new Position(18,8), new Position(19,8), new Position (20,8), new Position (21,8), new Position (22,8), new Position (23,8), new Position (24,8) ])
 		posicionNiveles.addAll([ new Position(1, 12), new Position(2,12), new Position(3,12), new Position(1,12), new Position(2,12), new Position(3,12), new Position (4,12), new Position (5,12), new Position (16,12), new Position (17,12), new Position (18,12), new Position (19,12), new Position (20,12), new Position (21,12), new Position (22,12), new Position (23,12), new Position (24,12) ])
-		posicionNiveles.addAll([ new Position(10, 9), new Position(10,10), new Position(11, 9), new Position(11,10), new Position(12, 9), new Position(12,10), new Position(10, 11), new Position(13,11) ])
+		posicionNiveles.addAll([ new Position(10, 9), new Position(10,10), new Position(11, 9), new Position(11,10), new Position(12, 9), new Position(12,10), new Position(10, 11), new Position(12,11), new Position(13,11) ])
 		posicionNiveles.forEach{ p => self.dibujar(new LadrillosPared(position = p))}
 		paredMedio.forEach{ p => self.dibujar(new LadrillosPared(position = p))}
 			// piso que se mueve
