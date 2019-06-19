@@ -56,7 +56,6 @@ class Puerta {
 	method salida()
 
 	method chocaCon(conejo) {
-
 	}
 
 	method teMueres() {
@@ -106,7 +105,7 @@ class Piso {
 
 object puertaMagica inherits PuertaQueHaceSubir {
 
-	var property puertaFinal
+	var property puertaFinal = null
 	var cantidad = null
 
 	method zanahoriasFaltantes(param) {
@@ -210,4 +209,20 @@ class PisoEnMovimiento inherits ParedDeLadrillos {
 	}
 
 }
-
+class Lava{
+	var property posicionAMover
+	var property position
+	method nombre() = "lava"
+	method image() = "Lava.png"
+	method chocaCon(conejo) {}
+	method teMueres() {}
+	method caesEnLaLava(){
+		game.getObjectsIn(position.up(1)).forEach{ persona =>self.moverPosicion(persona)}
+	}
+	method moverPosicion(param) {
+		if(param==conejo){
+		param.teMueres()
+		param.position(posicionAMover)
+	}
+	}
+}

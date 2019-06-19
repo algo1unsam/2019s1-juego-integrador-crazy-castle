@@ -14,6 +14,7 @@ object juego {
 		game.ground("fondo.png")
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
+		conejo.positionOriginal(game.at(22, 1))
 //LOGICA PARA PUERTAS
 		var puerta1 = new PuertaQueHaceSubir(position = game.at(13, 1))
 		puerta1.creoPuertaEn(game.at(13, 5))
@@ -39,20 +40,6 @@ object juego {
 		var personajesConGravedad = [ ]
 		malo.cantidadPasos()
 		malo1.cantidadPasos()
-//	AGREGO A BUGS BUNNY
-		game.addVisual(conejo)
-//PERSONAJES MALOS
-		game.addVisual(malo)
-		game.addVisual(malo1)
-//CAJAS
-		game.addVisual(caja)
-		game.addVisual(caja1)
-			// PUERTAS
-		game.addVisualIn(puerta1, puerta1.position())
-		game.addVisualIn(puerta2, puerta2.position())
-		game.addVisualIn(puerta3, puerta3.position())
-		game.addVisualIn(puerta4, puerta4.position())
-//LADRILLOS
 		var posicionNiveles = []
 		(0 .. largo).forEach{ n => posicionNiveles.add(new Position(0, n))}
 		(0 .. largo).forEach{ n => posicionNiveles.add(new Position(ancho, n))}
@@ -64,6 +51,19 @@ object juego {
 //PAREDES
 		self.bordesDelMapa(ancho,largo)
 		personajesConGravedad.addAll([ conejo, malo1, malo, caja, caja1 ])
+	//PERSONAJES MALOS
+		game.addVisual(malo)
+		game.addVisual(malo1)
+//CAJAS
+		game.addVisual(caja)
+		game.addVisual(caja1)
+			// PUERTAS
+		game.addVisualIn(puerta1, puerta1.position())
+		game.addVisualIn(puerta2, puerta2.position())
+		game.addVisualIn(puerta3, puerta3.position())
+		game.addVisualIn(puerta4, puerta4.position())
+	//	AGREGO A BUGS BUNNY
+		game.addVisual(conejo)
 			// COLISIONES
 		game.whenCollideDo(conejo, { algo => algo.chocaCon(conejo)})
 		game.whenCollideDo(caja1, { algo => algo.chocaCon(caja)})
@@ -74,11 +74,14 @@ object juego {
 		game.onTick(100, "gravedad", { gravedad.bajar(personajesConGravedad)})
 			// cajas
 		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ caj => caj.aplasta()}})
+		// resetea para volver a colicionar con 1 malo
+		game.onTick(1000, "conejo pierde 1 vida", { conejo.contador()})
+		
 			// TECLADO
 		keyboard.left().onPressDo{ izquierda.movimientoIzquierda(conejo)}
 		keyboard.right().onPressDo{ derecha.movimientoDerecha(conejo)}
 		keyboard.up().onPressDo{ conejo.entrarPorPuerta()}
-		game.onTick(20, "tecla", { tecla.estaTocada(false)})
+		
 	}
 
 	method dibujar(dibujo) {
@@ -97,6 +100,7 @@ object juego {
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
 		conejo.position(game.at(1, 1))
+		conejo.positionOriginal(game.at(1, 1))
 //LOGICA PARA PUERTAS
 		var puerta1 = new PuertaQueHaceSubir(position = game.at(10, 1))
 		puerta1.creoPuertaEn(game.at(1, 5))
@@ -123,20 +127,12 @@ object juego {
 		var personajesConGravedad = []
 		malo.cantidadPasos()
 		malo1.cantidadPasos()
-			// game.addVisualIn(superTonico,game.at(20,13))
-//	AGREGO A BUGS BUNNY
-		game.addVisual(conejo)
-//PERSONAJES MALOS
-		game.addVisual(malo)
-		game.addVisual(malo1)
-//CAJAS
-		game.addVisual(caja)
-		game.addVisual(caja1)
-			// PUERTAS
-		game.addVisual(puerta1)
-		game.addVisual(puerta2)
-		game.addVisual(puerta3)
-		game.addVisual(puerta4)
+		var vuelveDeLaLava=game.at(5,13)
+		const lava0=new Lava(position=game.at(11,11),posicionAMover=vuelveDeLaLava)
+		const lava1=new Lava(position=game.at(12,11),posicionAMover=vuelveDeLaLava)
+		self.dibujar(lava0)
+		self.dibujar(lava1)
+		
 //LADRILLOS
 	self.bordesDelMapa(ancho,largo)
 		var posicionNiveles = []
@@ -146,7 +142,7 @@ object juego {
 		paredMedio.addAll([ new Position(12,1), new Position(12,2), new Position(12,3), new Position(12,4), new Position (12,5), new Position (12,6), new Position (12,7), new Position (12,8), new Position (1,4), new Position (2,4), new Position (3,4), new Position (4,4), new Position (5,4), new Position (6,4), new Position (7,4), new Position (8,4), new Position (9,4), new Position (10,4), new Position (11,4), new Position (13,4), new Position (14,4), new Position (15,4), new Position (16,4), new Position (17,4), new Position (18,4), new Position (19,4), new Position (20,4) ])
 		posicionNiveles.addAll([ new Position(1, 8), new Position(2, 8), new Position(3, 8), new Position(4, 8), new Position(5,8), new Position(6,8), new Position(7,8), new Position(8,8), new Position(9,8), new Position(10,8), new Position(11,8), new Position(15,8), new Position(16,8), new Position(17,8), new Position(18,8), new Position(19,8), new Position (20,8), new Position (21,8), new Position (22,8), new Position (23,8), new Position (24,8) ])
 		posicionNiveles.addAll([ new Position(1, 12), new Position(2,12), new Position(3,12), new Position(1,12), new Position(2,12), new Position(3,12), new Position (4,12), new Position (5,12), new Position (16,12), new Position (17,12), new Position (18,12), new Position (19,12), new Position (20,12), new Position (21,12), new Position (22,12), new Position (23,12), new Position (24,12) ])
-		posicionNiveles.addAll([ new Position(10, 9), new Position(10,10), new Position(11, 9), new Position(11,10), new Position(12, 9), new Position(12,10) ])
+		posicionNiveles.addAll([ new Position(10, 9), new Position(10,10), new Position(11, 9), new Position(11,10), new Position(12, 9), new Position(12,10), new Position(10, 11), new Position(13,11) ])
 		posicionNiveles.forEach{ p => self.dibujar(new LadrillosPared(position = p))}
 		paredMedio.forEach{ p => self.dibujar(new LadrillosPared(position = p))}
 			// piso que se mueve
@@ -156,6 +152,20 @@ object juego {
 		posicionDelPiso.forEach{ p => p.reseteoMovimiento()}
 		game.onTick(200, "piso en movimiento", { posicionDelPiso.forEach{ p => p.movimiento()}}) // movimiento del piso
 		personajesConGravedad.addAll([ conejo, malo1, malo, caja, caja1 ])
+			//PERSONAJES MALOS
+		game.addVisual(malo)
+		game.addVisual(malo1)
+//CAJAS
+		game.addVisual(caja)
+		game.addVisual(caja1)
+			// PUERTAS
+		game.addVisualIn(puerta1, puerta1.position())
+		game.addVisualIn(puerta2, puerta2.position())
+		game.addVisualIn(puerta3, puerta3.position())
+		game.addVisualIn(puerta4, puerta4.position())
+	//	AGREGO A BUGS BUNNY
+		game.addVisual(conejo)
+			
 			// COLISIONES
 		game.whenCollideDo(conejo, { algo => algo.chocaCon(conejo)})
 		game.whenCollideDo(caja1, { algo => algo.chocaCon(caja)})
@@ -166,11 +176,13 @@ object juego {
 		game.onTick(100, "gravedad", { gravedad.bajar(personajesConGravedad)})
 			// cajas
 		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ caj => caj.aplasta()}})
+		// resetea para volver a colicionar con 1 malo
+		game.onTick(1000, "conejo pierde 1 vida", { conejo.contador()})	
 			// TECLADO
 		keyboard.left().onPressDo{ izquierda.movimientoIzquierda(conejo)}
 		keyboard.right().onPressDo{ derecha.movimientoDerecha(conejo)}
 		keyboard.up().onPressDo{conejo.entrarPorPuerta()}
-		game.onTick(50, "tecla", { tecla.estaTocada(false)})
+	
 	}
 	method bordesDelMapa(ancho,largo){
 		var posPiso = []

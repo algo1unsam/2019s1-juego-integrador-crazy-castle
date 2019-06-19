@@ -59,19 +59,4 @@ object gravedad {
 	
 }
 
-object tecla {
-
-	var property estaTocada = false
-
-	method chocaCon(algo) {
-	}
-
-	method teMueres() {
-	}
-
-	method reseteate() {
-		estaTocada = true
-	}
-
-}
 
