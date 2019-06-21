@@ -51,17 +51,19 @@ object juego {
 //PAREDES
 		self.bordesDelMapa(ancho,largo)
 		personajesConGravedad.addAll([ conejo, malo1, malo, caja, caja1 ])
-	//PERSONAJES MALOS
-		game.addVisual(malo)
-		game.addVisual(malo1)
-//CAJAS
-		game.addVisual(caja)
-		game.addVisual(caja1)
+
 			// PUERTAS
 		game.addVisualIn(puerta1, puerta1.position())
 		game.addVisualIn(puerta2, puerta2.position())
 		game.addVisualIn(puerta3, puerta3.position())
 		game.addVisualIn(puerta4, puerta4.position())
+		//CAJAS
+		game.addVisual(caja)
+		game.addVisual(caja1)
+			//PERSONAJES MALOS
+		game.addVisual(malo)
+		game.addVisual(malo1)
+		
 	//	AGREGO A BUGS BUNNY
 		game.addVisual(conejo)
 			// COLISIONES
@@ -108,7 +110,7 @@ object juego {
 		puerta2.creoPuertaEn(game.at(1, 9))
 		const puerta3 = new PuertaQueHaceSubir(position = game.at(8, 9))
 		puerta3.creoPuertaEn(game.at(1, 13))
-		const puerta4 = new PuertaQueHaceSubir(position = game.at(22, 13))
+		const puerta4 = new PuertaQueHaceSubir(position = game.at(20, 13))
 		puerta4.creoPuertaEn(game.at(22, 9))
 			// puerta del final
 		puertaMagica.crearZanahorias([ new Position(4,5), new Position(4,9), new Position(3,13), new Position(23,13), new Position(18,5) ])
@@ -146,19 +148,19 @@ object juego {
 		posicionDelPiso.addAll([ new PisoEnMovimiento(position=new Position(13,12)), new PisoEnMovimiento(position=new Position(14,12)), new PisoEnMovimiento(position=new Position(15,12)) ])
 		posicionDelPiso.forEach{ p => self.dibujar(p)}
 		posicionDelPiso.forEach{ p => p.reseteoMovimiento()}
-		game.onTick(200, "piso en movimiento", { posicionDelPiso.forEach{ p => p.movimiento()}}) // movimiento del piso
 		personajesConGravedad.addAll([ conejo, malo1, malo, caja, caja1 ])
+					// PUERTAS
+		game.addVisualIn(puerta1, puerta1.position())
+		game.addVisualIn(puerta2, puerta2.position())
+		game.addVisualIn(puerta3, puerta3.position())
+		game.addVisualIn(puerta4, puerta4.position())
 			//PERSONAJES MALOS
 		game.addVisual(malo)
 		game.addVisual(malo1)
 //CAJAS
 		game.addVisual(caja)
 		game.addVisual(caja1)
-			// PUERTAS
-		game.addVisualIn(puerta1, puerta1.position())
-		game.addVisualIn(puerta2, puerta2.position())
-		game.addVisualIn(puerta3, puerta3.position())
-		game.addVisualIn(puerta4, puerta4.position())
+
 	//	AGREGO A BUGS BUNNY
 		game.addVisual(conejo)
 			
@@ -174,6 +176,9 @@ object juego {
 		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ caj => caj.aplasta()}})
 		// resetea para volver a colicionar con 1 malo
 		game.onTick(1000, "conejo pierde 1 vida", { conejo.contador()})	
+	//PISO EN MOVIMIENTO
+	  game.onTick(200, "piso en movimiento", { posicionDelPiso.forEach{ p => p.movimiento()}}) // movimiento del piso
+		
 			// TECLADO
 		keyboard.left().onPressDo{ izquierda.movimientoIzquierda(conejo)}
 		keyboard.right().onPressDo{ derecha.movimientoDerecha(conejo)}

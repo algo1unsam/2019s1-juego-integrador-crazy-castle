@@ -75,31 +75,3 @@ class Caja {
 	}
 
 }
-
-/* 
- * object superTonico{//este objeto le da super fuerza para poder matar 1 malo
- * 	var property tiempo=0
- * 	method image()="superTonico.png"
- * 	method chocaCon(conejo) {//cambio la foto del conejo, al agarrar el objeto
- * 		juego.borrar(conejo)
- * 		conejo.imagen("conejo_musculos.png")
- * 		juego.dibujar(conejo)
- * 		tiempo=100  //tiempo que durara el efecto
- * 		juego.borrar(self)
- * 		game.onTick(300,"superconejo",{self.tiempo()})//contara el tiempo
- * 	}
- * 	method tiempoTranscurrido(){// cuenta el tiempo q transcurre. y elimina los efectos al terminar
- * 		if(tiempo>0){
- * 			tiempo-=1
- * 		}else{
- * 			juego.borrar(conejo)
- * 			conejo.imagen("conejo2.png")
- * 			juego.dibujar(conejo)
- * 		}
- * 	}
- * 	method terminaElEfecto(){// fin de los efectos del tonico
- * 		tiempo=0
- * 	}
- * 	method teMueres() {	}
- * }
- */

@@ -26,7 +26,7 @@ object conejo {
 
 	method comer(unazanahoria) {
 		if (self.sigueVivo()) {
-			puntos += 1
+			
 			juego.borrar(unazanahoria)
 			puertaMagica.restarZanahoria()
 		}
@@ -72,7 +72,7 @@ object conejo {
 			
 			colision = false
 			self.restaPuntos()
-			game.say(self, "Te Quedan:" + puntos+ "de vida")
+			game.say(self, "Te Quedan:" + puntos + "de vida")
 		}
 	}
 

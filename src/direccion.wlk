@@ -5,15 +5,12 @@ object derecha {
 
 	method chocaCon(algo) {
 	}
-
 	method movimientoDerecha(alguien) {
 		alguien.position(alguien.position().right(1))
 		alguien.posicionAnterior(self)
 	}
-
 	method teMueres() {
 	}
-
 }
 
 object izquierda {
@@ -22,7 +19,7 @@ object izquierda {
 	}
 
 	method movimientoIzquierda(alguien) {
-		alguien.position(alguien.position().left(1))
+	alguien.position(alguien.position().left(1))
 	alguien.posicionAnterior(self)
 	}
 
@@ -35,9 +32,7 @@ object gravedad {
 
 	method nombre() = self
 	method bajar(personaje) {
-		
 			personaje.forEach{alguien =>self.comprueboPosicion(alguien)}
-			
 		}
 		
 		method comprueboPosicion(algo)
@@ -47,7 +42,6 @@ object gravedad {
 			}
 			
 		}
-		
 
 	method teMueres() {
 	}
