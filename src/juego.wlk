@@ -24,7 +24,7 @@ object juego {
 		puerta3.creoPuertaEn(game.at(10, 11))
 		const puerta4 = new PuertaQueHaceSubir(position = game.at(13, 11))
 		puerta4.creoPuertaEn(game.at(1, 9))
-//const pisonivel0 = new Ladrillo()
+//const piso nivel0 = new Ladrillo()
 		puertaMagica.position(game.at(22, 1))
 		puertaMagica.crearZanahorias([ new Position(19,9), new Position(13,5), new Position(3,9), new Position(10,11), new Position(5,13) ])
 		puertaMagica.puertaSalida(game.at(19, 13))

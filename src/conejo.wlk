@@ -16,7 +16,6 @@ object conejo {
 	var property colision = true
 	var tiempo=5
 	method nombre() = "conejo"
-
 	method chocaCon(algo) {
 	}
 
@@ -32,9 +31,6 @@ object conejo {
 		}
 	}
 
-	method entraPor(unapuerta) {
-		if (self.position() == unapuerta.position()) self.position(unapuerta.position())
-	}
 
 	method restaPuntos() {
 		if (puntos >= 1) {
@@ -55,7 +51,7 @@ object conejo {
 		}
 	}
 	method entrarPorPuerta() {
-		game.colliders(self).forEach{ puerta => self.buscoPuerta(puerta)}
+		game.colliders(self).forEach {puerta =>self.buscoPuerta(puerta)}
 	}
 
 	method buscoPuerta(puerta) {
