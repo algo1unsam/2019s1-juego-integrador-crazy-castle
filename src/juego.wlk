@@ -71,11 +71,11 @@ object juego {
 		game.whenCollideDo(caja1, { algo => algo.chocaCon(caja)})
 		game.whenCollideDo(caja, { algo => algo.chocaCon(caja)})
 			// movimiento		
-		game.onTick(700, "caminaHacialaIzquierda", { seMueven.forEach{ mal => mal.movimiento()}})
+		game.onTick(700, "caminaHacialaIzquierda", { seMueven.forEach{ malos => malos.movimiento()}})
 			// gravedad
 		game.onTick(100, "gravedad", { gravedad.bajar(personajesConGravedad)})
 			// cajas
-		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ caj => caj.aplasta()}})
+		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ cajass => cajass.aplasta()}})
 		// resetea para volver a colicionar con 1 malo
 		game.onTick(1000, "conejo pierde 1 vida", { conejo.contador()})
 		
@@ -119,9 +119,9 @@ object juego {
 		puertaMagica.puertaSalida(game.at(5, 1))
 		puertaMagica.puertaFinal(gameOver)
 		var cajas = []
-		var caja = new Caja(position = game.at(15, 9))
+		var caja  = new Caja(position = game.at(15, 9))
 		var caja1 = new Caja(position = game.at(19, 5))
-		var malo = new Malo(imagen = "malo1.png", position = game.at(18, 5), cantidadpasosIzquierda = 6, cantidadpasosDerecha = 6)
+		var malo  = new Malo(imagen = "malo1.png", position = game.at(18, 5), cantidadpasosIzquierda = 6, cantidadpasosDerecha = 6)
 		var malo1 = new Malo(imagen = "malo2.png", position = game.at(23, 3), cantidadpasosIzquierda = 6, cantidadpasosDerecha = 6)
 		cajas.addAll([ caja, caja1 ])
 			// metodos q se usan mas abajo
@@ -169,20 +169,20 @@ object juego {
 		game.whenCollideDo(caja1, { algo => algo.chocaCon(caja)})
 		game.whenCollideDo(caja, { algo => algo.chocaCon(caja)})
 			// movimiento		
-		game.onTick(700, "caminaHacialaIzquierda", { seMueven.forEach{ mal => mal.movimiento()}})
+		game.onTick(700, "caminaHacialaIzquierda", { seMueven.forEach{ malos => malos.movimiento()}})
 			// gravedad
 		game.onTick(100, "gravedad", { gravedad.bajar(personajesConGravedad)})
 			// cajas
-		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ caj => caj.aplasta()}})
+		game.onTick(100, "si alguien es aplastado", { cajas.forEach{ cajass=> cajass.aplasta()}})
 		// resetea para volver a colicionar con 1 malo
 		game.onTick(1000, "conejo pierde 1 vida", { conejo.contador()})	
 	//PISO EN MOVIMIENTO
 	  game.onTick(200, "piso en movimiento", { posicionDelPiso.forEach{ p => p.movimiento()}}) // movimiento del piso
 		
 			// TECLADO
-		keyboard.left().onPressDo{ izquierda.movimientoIzquierda(conejo)}
+		keyboard.left().onPressDo { izquierda.movimientoIzquierda(conejo)}
 		keyboard.right().onPressDo{ derecha.movimientoDerecha(conejo)}
-		keyboard.up().onPressDo{conejo.entrarPorPuerta()}
+		keyboard.up().onPressDo   {conejo.entrarPorPuerta()}
 	
 	}
 	method bordesDelMapa(ancho,largo){

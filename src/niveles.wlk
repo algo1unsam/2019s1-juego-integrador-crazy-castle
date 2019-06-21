@@ -109,7 +109,6 @@ object puertaMagica inherits PuertaQueHaceSubir {
 	var cantidad = null
 
 	method zanahoriasFaltantes(param) {
-		// self.position(puertaSalida)
 		cantidad = param
 	}
 
